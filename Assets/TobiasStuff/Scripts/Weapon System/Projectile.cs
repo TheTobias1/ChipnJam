@@ -21,11 +21,15 @@ public class Projectile : MonoBehaviour
     public void Start()
     {
         Invoke("Kill", projectileTimeout);
+
+        if(projectileSpeed > 0)
+            SetVelocity(transform.forward * projectileSpeed);
     }
 
     public void SetVelocity(Vector3 force)
     {
-        body.velocity = force;
+        if(body != null)
+            body.velocity = force;
     }
 
     private void Update()
