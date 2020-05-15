@@ -6,12 +6,18 @@ public class Projectile : MonoBehaviour
 {
     public Rigidbody body;
 
+    //Projectile settings
     public float projectileWidth;
     public float projectileSpeed;
     public float projectileTimeout;
 
+    //Damage
+    public int damage;
     public bool damageOnOverlap;
-    public bool damageOnCollision;
+    public float overlapTickRate;
+    private float nextOverlap;
+
+    public bool damageOnRaycast;
 
     public LayerMask mask;
     public List<string> damagingTags;
@@ -34,11 +40,15 @@ public class Projectile : MonoBehaviour
 
     private void Update()
     {
-        if(damageOnCollision)
+        if(damageOnRaycast)
         {
-            if(CollisionCheck().collider != null)
+            RaycastHit hit = CollisionCheck();
+            if(hit.collider != null)
             {
-                //Do damage
+                if(damagingTags.Contains(hit.collider.tag))
+                {
+                    DamageObject(hit.collider.gameObject);
+                }
 
 
                 //Destroy
@@ -46,14 +56,10 @@ public class Projectile : MonoBehaviour
             }
         }
 
-        if(damageOnOverlap)
+        if(damageOnOverlap && Time.time > nextOverlap)
         {
-            Collider[] hits = Overlap();
-
-            foreach(Collider h in hits)
-            {
-                //Do damage
-            }
+            nextOverlap = Time.time + overlapTickRate;
+            Overlap();
         }
 
 
@@ -82,20 +88,30 @@ public class Projectile : MonoBehaviour
         return new RaycastHit();
     }
 
-    Collider[] Overlap()
+    void Overlap()
     {
         Collider[] hits = Physics.OverlapSphere(transform.position, projectileWidth, mask);
-        List<Collider> goodHits = new List<Collider>();
 
         foreach(Collider h in hits)
         {
-            if(damagingTags.Contains(h.tag))
-            {
-                goodHits.Add(h);
-            }
+            DamageObject(h.gameObject);
         }
 
-        return goodHits.ToArray();
+    }
+
+    public void DamageObject(GameObject r)
+    {
+        HealthManager hp = r.GetComponent<HealthManager>();
+
+        if (hp == null)
+        {
+            hp = r.GetComponentInParent<HealthManager>();
+        }
+
+        if (hp != null)
+        {
+            hp.TakeDamage(damage);
+        }
     }
 
     public void Kill()
