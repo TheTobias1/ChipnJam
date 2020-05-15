@@ -18,6 +18,7 @@ public class Projectile : MonoBehaviour
     private float nextOverlap;
 
     public bool damageOnRaycast;
+    public bool destroyOnImpact;
 
     public LayerMask mask;
     public List<string> damagingTags;
@@ -111,6 +112,14 @@ public class Projectile : MonoBehaviour
         if (hp != null)
         {
             hp.TakeDamage(damage);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(destroyOnImpact)
+        {
+            Kill();
         }
     }
 
