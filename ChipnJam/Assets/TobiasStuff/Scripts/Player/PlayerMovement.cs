@@ -5,8 +5,9 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     //Components
+    public Transform playerModel;
+
     private CharacterController controller;
-    private Transform playerModel;
 
     //Movement attributes
     public float speed;
@@ -32,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
         PlayerInput inputBuffer = InputManager.GetPlayerInput();
 
         Move(inputBuffer);
+        RotateModel();
     }
 
     protected virtual void Move(PlayerInput input)
@@ -43,13 +45,16 @@ public class PlayerMovement : MonoBehaviour
         {
             planearVelocity += moveInput * acceleration * Time.deltaTime;
             planearVelocity = Vector2.ClampMagnitude(planearVelocity, speed);
-            forwardDirection = velocity;
+            forwardDirection = new Vector3(planearVelocity.x, 0, planearVelocity.y);
         }
         else
         {
-            float curSpeed = velocity.magnitude;
+            float curSpeed = planearVelocity.magnitude;
             curSpeed = Mathf.Max(0, curSpeed - deceleration * Time.deltaTime);
+            planearVelocity = planearVelocity.normalized * curSpeed;
         }
+
+        velocity = new Vector3(planearVelocity.x, velocity.y, planearVelocity.y);
 
         if(controller.isGrounded)
         {
@@ -70,7 +75,12 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        controller.Move(velocity * Time.deltaTime);
+    }
 
+    protected virtual void RotateModel()
+    {
+        playerModel.transform.rotation = Quaternion.Lerp(playerModel.rotation, Quaternion.LookRotation(forwardDirection), 15 * Time.deltaTime);
     }
 
     protected virtual void Jump()
