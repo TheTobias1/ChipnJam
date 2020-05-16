@@ -28,7 +28,8 @@ public class InputManager : MonoBehaviour
         input.moveInput =  new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
         input.jump = Input.GetButton("Jump");
         input.attack = Input.GetButton("Fire1");
-        input.ability = Input.GetButtonDown("Fire2");
+        input.ability = Input.GetButton("Fire2");
+        input.aim = Input.GetButton("Fire3");
 
         return input;
     }
@@ -43,4 +44,5 @@ public struct PlayerInput
     public bool jump;
     public bool attack;
     public bool ability;
+    public bool aim;
 }

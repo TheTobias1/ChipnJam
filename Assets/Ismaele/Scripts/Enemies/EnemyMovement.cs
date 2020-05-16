@@ -66,10 +66,16 @@ public class EnemyMovement : PlayerMovement
                 {
                     traversingLink = true;
                 }
-            } else if (traversingLink && Controller.isGrounded)
+            } else if (traversingLink)
             {
-                traversingLink = false;
-                enemyAgent.CompleteOffMeshLink();
+                OffMeshLinkData data = enemyAgent.currentOffMeshLinkData;
+                enemyInput.moveInput = CondenseVector3(data.endPos - transform.position);
+                if(Controller.isGrounded)
+                {
+                    traversingLink = false;
+                    enemyAgent.CompleteOffMeshLink();
+                }
+
             } else
             {
                 enemyInput.moveInput = CondenseVector3(enemyAgent.desiredVelocity);

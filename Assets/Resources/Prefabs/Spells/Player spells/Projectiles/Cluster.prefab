@@ -33163,7 +33163,7 @@ MonoBehaviour:
   destroyOnImpact: 0
   mask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
   damagingTags:
   - Enemy
   deathPrefab: {fileID: 0}

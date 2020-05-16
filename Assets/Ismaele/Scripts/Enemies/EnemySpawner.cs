@@ -13,6 +13,8 @@ public class EnemySpawner : MonoBehaviour
     private float timeSinceLast;
     private bool canSpawn;
 
+    public int numEnemies;
+
     private void Start()
     {
         canSpawn = false;
@@ -29,6 +31,8 @@ public class EnemySpawner : MonoBehaviour
             int randomLocation = Random.Range(0, spawnLocations.Count);
             Debug.Log(randomLocation);
             Instantiate(enemy, spawnLocations[randomLocation].position, Quaternion.identity);
+
+            ++numEnemies;
         } else
         {
             timeSinceLast += Time.deltaTime;
@@ -38,5 +42,8 @@ public class EnemySpawner : MonoBehaviour
                 canSpawn = true;
             }
         }
+
+        if (numEnemies <= 0)
+            Destroy(gameObject);
     }
 }

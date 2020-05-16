@@ -21,7 +21,7 @@ public class KnockbackOnHit : MonoBehaviour
     private void OnHit(GameObject enemy)
     {
         Vector3 vel = transform.position - enemy.transform.position;
-        vel.y += 1;
+        vel.y += 0.4f;
         movement.Stun(vel.normalized * knockBackForce);
     }
 

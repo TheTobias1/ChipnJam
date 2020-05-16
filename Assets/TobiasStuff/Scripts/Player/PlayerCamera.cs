@@ -27,7 +27,7 @@ public class PlayerCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(moveToPlayer)
+        if(moveToPlayer && player != null)
         {
             MoveToPlayer();
         }
