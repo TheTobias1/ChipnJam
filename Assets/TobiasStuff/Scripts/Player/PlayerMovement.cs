@@ -22,13 +22,13 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 forwardDirection;
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         controller = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         PlayerInput inputBuffer = InputManager.GetPlayerInput();
 
