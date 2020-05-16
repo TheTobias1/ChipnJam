@@ -38,7 +38,7 @@ public class EnemyMovement : PlayerMovement
         if (!sensor.SensesPlayer)
         {
             enemyInput.moveInput = Vector2.zero;
-            enemyInput.jump = true;
+            enemyInput.jump = false;
             enemyInput.attack = false;
             enemyInput.ability = false;
         } else
@@ -47,7 +47,6 @@ public class EnemyMovement : PlayerMovement
             enemyAgent.SetDestination(sensor.Player.position);
 
             enemyInput.moveInput = CondenseVector3(enemyAgent.desiredVelocity.normalized);
-            //enemyInput.moveInput = enemyAgent.desiredVelocity;
             enemyInput.jump = false;
             enemyInput.attack = false;
             enemyInput.ability = false;
