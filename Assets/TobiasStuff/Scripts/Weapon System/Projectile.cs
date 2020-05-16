@@ -115,7 +115,10 @@ public class Projectile : MonoBehaviour
         {
             Debug.Log("HIT: " + hp.name);
             if (damage > 0)
+            {
                 hp.TakeDamage(damage);
+                hp.onDamaged?.Invoke(gameObject);
+            }
             else
                 hp.HealDamage(damage);
         }
