@@ -30,11 +30,11 @@ public class HealthManager : MonoBehaviour
         {
             Health -= damageAmount;
             Health = Mathf.Clamp(Health, 0, maxHealth);
-        }
 
-        if (!IsAlive)
-        {
-            onKilled?.Invoke();
+            if (!IsAlive)
+            {
+                onKilled?.Invoke();
+            }
         }
     }
 
@@ -60,5 +60,11 @@ public class HealthManager : MonoBehaviour
             Health = reviveAmount;
             Health = Mathf.Clamp(Health, 0, maxHealth);
         }
+    }
+
+    public void InstaKill()
+    {
+        Health = 0;
+        onKilled?.Invoke();
     }
 }
