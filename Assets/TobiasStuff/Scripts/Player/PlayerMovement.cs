@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform playerModel;
 
     private CharacterController controller;
+    public CharacterController Controller { get => controller; }
 
     //Movement attributes
     public float speed;
