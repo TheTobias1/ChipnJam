@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5202947116737957540}
   - component: {fileID: 3691884821729514776}
   - component: {fileID: 7451215635493759344}
+  - component: {fileID: -6193140867487622722}
   m_Layer: 0
   m_Name: BigBomb
   m_TagString: Untagged
@@ -64,7 +65,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body: {fileID: 5202947116737957540}
   projectileWidth: 0.5
-  projectileSpeed: 10
+  projectileSpeed: 15
   projectileTimeout: 2
   damage: 0
   damageOnOverlap: 0
@@ -75,7 +76,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   damagingTags: []
-  deathPrefab: {fileID: 2113230003640973821, guid: 71caf0d220c798c46aa1ec0e8e7459d3,
+  deathPrefab: {fileID: 9185362180724980388, guid: 6b0b0a935bf73e7469e56643ca5439bb,
     type: 3}
 --- !u!135 &7451215635493759344
 SphereCollider:
@@ -90,6 +91,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-6193140867487622722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6135749309683470510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3e2ecc4168702c45a930acb4af0c11a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6200230702510123158
 GameObject:
   m_ObjectHideFlags: 0

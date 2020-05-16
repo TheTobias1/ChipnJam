@@ -47,7 +47,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -4804,7 +4804,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -9523,9 +9523,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59b2fe21dab4c5340a683aefc568356e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  body: {fileID: 319442260108708537, guid: 26c31641b357ee74d9fa72c63a19dc8d, type: 3}
+  body: {fileID: 4269576612569404678}
   projectileWidth: 0.5
-  projectileSpeed: 30
+  projectileSpeed: 60
   projectileTimeout: 2
   damage: 0
   damageOnOverlap: 0

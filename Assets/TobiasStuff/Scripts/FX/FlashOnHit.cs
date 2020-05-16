@@ -28,7 +28,7 @@ public class FlashOnHit : MonoBehaviour
         normalMaterial = mesh.material;
     }
 
-    public void OnHit()
+    public void OnHit(GameObject damagedObject)
     {
         CancelInvoke("UnFlash");
         mesh.material = flashMaterial;
