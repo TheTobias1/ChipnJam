@@ -16,8 +16,6 @@ public class Death : MonoBehaviour
 
     public void Die()
     {
-        Debug.Log("DIED!!!");
-
         if(deathPrefab != null)
         {
             Instantiate(deathPrefab, transform.position, transform.rotation);
