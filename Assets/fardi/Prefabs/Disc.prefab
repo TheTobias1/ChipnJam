@@ -100,13 +100,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cfddd3d4b4b3874c856bbbc2e47c93e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loopIsPlaying: 0
   loseState: -5
   WinState: 5
   points: 0
   time: 0
   loopTime: 0
   criticalTime: 0
-  clickWindowTime: 0.02
+  clickWindowTime: 0.5
   audioSource: {fileID: -2187048635946650340}
 --- !u!82 &-2187048635946650340
 AudioSource:

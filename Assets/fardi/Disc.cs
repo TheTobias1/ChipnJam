@@ -23,7 +23,6 @@ public class Disc : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        loopIsPlaying = false;
         clickWindowActive = false;
         monitorPlayTime = false;
         playerMissedBeat = true;
@@ -36,7 +35,7 @@ public class Disc : MonoBehaviour
     void Update()
     {
         if (loopIsPlaying){
-            PlayRhythmGame();
+          PlayRhythmGame();
         }
     }
 
@@ -50,8 +49,6 @@ public class Disc : MonoBehaviour
 
 
     void PlayRhythmGame(){
-        
-        Debug.Log("PlayRhythmGame called");
         //keep accurate value for time since audio begun playing
         if(!monitorPlayTime){
             monitorPlayTime = true;
@@ -60,17 +57,19 @@ public class Disc : MonoBehaviour
             time += Time.deltaTime;
         }
 
-        if (time >= (loopTime - clickWindowTime) ||
+        if (time >= (loopTime - clickWindowTime) &&
          time <= (loopTime + clickWindowTime))
         {
             if(clickWindowActive == false){
                 clickWindowActive = true;
+                Debug.Log("Click window is active");
             }
         }
         else{
             //reset bools
             if(clickWindowActive == true){
                 clickWindowActive = false;
+                Debug.Log("Click Window is inactive");
                 loopTime += loopTime;
                 if (playerMissedBeat == true){
                     Debug.Log("Player missed the beat");
@@ -84,7 +83,7 @@ public class Disc : MonoBehaviour
         }
 
         //now check 
-        if(Input.GetKeyDown("jump")){
+        if(Input.GetButtonDown("Jump")){
             if (clickWindowActive == true){
                 Debug.Log("successful click");
                 points += 1;
