@@ -13,6 +13,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6267446873812388424, guid: 0303418a8eca54141b793c5f350b2f37,
         type: 3}
+    - target: {fileID: 6521997653167321794, guid: bba2d5e13c6b765478c410e4c94fe3ba,
+        type: 3}
+      propertyPath: fireRate
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6521997653167321794, guid: bba2d5e13c6b765478c410e4c94fe3ba,
+        type: 3}
+      propertyPath: weaponType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7960531933488970593, guid: bba2d5e13c6b765478c410e4c94fe3ba,
         type: 3}
       propertyPath: m_LocalPosition.x

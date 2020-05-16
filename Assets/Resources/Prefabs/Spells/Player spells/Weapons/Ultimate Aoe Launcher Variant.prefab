@@ -24,13 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4838943859074248552}
-  m_LocalRotation: {x: -0.18733431, y: -0.085600875, z: -0.016389636, w: 0.97842205}
+  m_LocalRotation: {x: -0.08682413, y: -0.08682413, z: -0.0075961305, w: 0.99240386}
   m_LocalPosition: {x: -0.5, y: 0, z: 1.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4840628884239015956}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -21.678001, y: -10, z: 0}
+  m_LocalEulerAnglesHint: {x: -10, y: -10, z: 0}
 --- !u!114 &6434792866520193194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,30 +65,35 @@ PrefabInstance:
       propertyPath: Spawners.Array.data[1]
       value: 
       objectReference: {fileID: 6434792866520193194}
+    - target: {fileID: 59033783706753981, guid: 401dee8788206c0458faf3ea6bdfc2fd,
+        type: 3}
+      propertyPath: fireRate
+      value: 2.2
+      objectReference: {fileID: 0}
     - target: {fileID: 2714280793283986447, guid: 401dee8788206c0458faf3ea6bdfc2fd,
         type: 3}
       propertyPath: m_Name
-      value: Ultimate Aoe Launcher
+      value: Ultimate Aoe Launcher Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3486450083204879263, guid: 401dee8788206c0458faf3ea6bdfc2fd,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.18733431
+      value: -0.08682413
       objectReference: {fileID: 0}
     - target: {fileID: 3486450083204879263, guid: 401dee8788206c0458faf3ea6bdfc2fd,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.085600875
+      value: 0.08682413
       objectReference: {fileID: 0}
     - target: {fileID: 3486450083204879263, guid: 401dee8788206c0458faf3ea6bdfc2fd,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.016389636
+      value: 0.0075961305
       objectReference: {fileID: 0}
     - target: {fileID: 3486450083204879263, guid: 401dee8788206c0458faf3ea6bdfc2fd,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.97842205
+      value: 0.99240386
       objectReference: {fileID: 0}
     - target: {fileID: 3486450083204879263, guid: 401dee8788206c0458faf3ea6bdfc2fd,
         type: 3}
@@ -99,6 +104,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486450083204879263, guid: 401dee8788206c0458faf3ea6bdfc2fd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 3758831387183796766, guid: 401dee8788206c0458faf3ea6bdfc2fd,
         type: 3}

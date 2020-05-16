@@ -65,17 +65,18 @@ MonoBehaviour:
   projectileWidth: 1.5
   projectileSpeed: 30
   projectileTimeout: 2
-  damage: 20
+  damage: 15
   damageOnOverlap: 0
   overlapTickRate: 0
   damageOnRaycast: 1
   destroyOnImpact: 0
   mask:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 2049
   damagingTags:
   - Enemy
   deathPrefab: {fileID: 0}
+  knockBack: 1
 --- !u!1 &4293572733204644526
 GameObject:
   m_ObjectHideFlags: 0

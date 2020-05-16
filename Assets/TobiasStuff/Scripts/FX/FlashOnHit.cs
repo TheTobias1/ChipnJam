@@ -22,13 +22,14 @@ public class FlashOnHit : MonoBehaviour
 
         if(hp != null)
         {
-            hp.onDamaged += OnHit;
+            hp.onDamaged += Flash;
         }
+
 
         normalMaterial = mesh.material;
     }
 
-    public void OnHit(GameObject damagedObject)
+    public void Flash(GameObject damagedObject)
     {
         Debug.Log("FLASH");
         CancelInvoke("UnFlash");
@@ -45,7 +46,7 @@ public class FlashOnHit : MonoBehaviour
     {
         if(hp != null)
         {
-            hp.onDamaged -= OnHit;
+            hp.onDamaged -= Flash;
         }
     }
 }

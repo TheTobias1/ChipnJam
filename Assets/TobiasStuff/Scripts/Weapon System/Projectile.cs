@@ -24,6 +24,7 @@ public class Projectile : MonoBehaviour
     public List<string> damagingTags;
 
     public GameObject deathPrefab;
+    public bool knockBack;
 
     public void Start()
     {
@@ -117,7 +118,10 @@ public class Projectile : MonoBehaviour
             if (damage > 0)
             {
                 hp.TakeDamage(damage);
-                hp.onDamaged?.Invoke(gameObject);
+                if (knockBack)
+                    hp.onDamaged?.Invoke(gameObject);
+                else
+                    hp.BroadcastMessage("Flash", gameObject, SendMessageOptions.DontRequireReceiver);
             }
             else
                 hp.HealDamage(damage);

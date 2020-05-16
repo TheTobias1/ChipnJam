@@ -9527,17 +9527,18 @@ MonoBehaviour:
   projectileWidth: 0.5
   projectileSpeed: 60
   projectileTimeout: 2
-  damage: 0
+  damage: 10
   damageOnOverlap: 0
   overlapTickRate: 0
   damageOnRaycast: 1
   destroyOnImpact: 0
   mask:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 2049
   damagingTags:
   - Enemy
   deathPrefab: {fileID: 0}
+  knockBack: 1
 --- !u!54 &4269576612569404678
 Rigidbody:
   m_ObjectHideFlags: 0

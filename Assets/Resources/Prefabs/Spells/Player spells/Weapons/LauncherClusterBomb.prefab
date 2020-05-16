@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6151762586607646792}
   - component: {fileID: 6151762586607646793}
   m_Layer: 0
-  m_Name: ClusterBomb
+  m_Name: LauncherClusterBomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
   Spawners:
   - {fileID: 6151762587981159964}
   fireRate: 1
-  weaponType: 0
+  weaponType: 1
 --- !u!1 &6151762587981159938
 GameObject:
   m_ObjectHideFlags: 0

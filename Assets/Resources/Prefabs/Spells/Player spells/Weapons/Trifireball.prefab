@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1252854130080937931}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.23}
+  m_LocalPosition: {x: 0.03, y: 0, z: -0.47}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8659353666821462164}
@@ -73,7 +73,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1252854131034204844}
   m_LocalRotation: {x: 0, y: -0.034899585, z: 0, w: 0.99939084}
-  m_LocalPosition: {x: 0, y: 0, z: 1.23}
+  m_LocalPosition: {x: 0.030001182, y: 0, z: -0.4700001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8659353666821462164}
@@ -121,7 +121,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1252854131429983724}
   m_LocalRotation: {x: 0, y: 0.03489949, z: 0, w: 0.99939084}
-  m_LocalPosition: {x: 0, y: 0, z: 1.23}
+  m_LocalPosition: {x: 0.030001182, y: 0, z: -0.4700001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8659353666821462164}
@@ -154,6 +154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8659353666821462164}
   - component: {fileID: 8659353666821462166}
+  - component: {fileID: 565252911}
   m_Layer: 0
   m_Name: Trifireball
   m_TagString: Untagged
@@ -168,7 +169,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8659353666821462163}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.3109522, y: 2.26, z: -5.372959}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -196,3 +197,11 @@ MonoBehaviour:
   - {fileID: 1252854131034204846}
   fireRate: 0.5
   weaponType: 0
+--- !u!33 &565252911
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8659353666821462163}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}

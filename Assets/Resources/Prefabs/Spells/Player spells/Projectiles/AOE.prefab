@@ -4871,12 +4871,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 0}
-  projectileWidth: 20
+  projectileWidth: 6
   projectileSpeed: 0
   projectileTimeout: 9
-  damage: 0
+  damage: 5
   damageOnOverlap: 1
-  overlapTickRate: 4
+  overlapTickRate: 0.2
   damageOnRaycast: 0
   destroyOnImpact: 0
   mask:
@@ -4885,6 +4885,7 @@ MonoBehaviour:
   damagingTags:
   - Enemy
   deathPrefab: {fileID: 0}
+  knockBack: 0
 --- !u!1 &5667762352507707308
 GameObject:
   m_ObjectHideFlags: 0
@@ -9725,6 +9726,7 @@ MonoBehaviour:
     m_Bits: 0
   damagingTags: []
   deathPrefab: {fileID: 0}
+  knockBack: 0
 --- !u!1001 &3790244899316324647
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -13,6 +13,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3641006049646344145, guid: cf1ef25169b0b9c4ea2593e2d6fd2f26,
         type: 3}
+    - target: {fileID: 6521997653167321794, guid: bba2d5e13c6b765478c410e4c94fe3ba,
+        type: 3}
+      propertyPath: fireRate
+      value: 1.4
+      objectReference: {fileID: 0}
     - target: {fileID: 7960531933488970593, guid: bba2d5e13c6b765478c410e4c94fe3ba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -71,7 +76,7 @@ PrefabInstance:
     - target: {fileID: 9221226505491000688, guid: bba2d5e13c6b765478c410e4c94fe3ba,
         type: 3}
       propertyPath: m_Name
-      value: Aoe Launcher
+      value: Aoe Launcher Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bba2d5e13c6b765478c410e4c94fe3ba, type: 3}

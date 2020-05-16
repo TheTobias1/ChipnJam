@@ -59,6 +59,7 @@ MonoBehaviour:
   damagingTags:
   - Enemy
   deathPrefab: {fileID: 0}
+  knockBack: 1
 --- !u!1 &4142903002208725654
 GameObject:
   m_ObjectHideFlags: 0

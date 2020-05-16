@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController controller;
     public CharacterController Controller { get => controller; }
 
+    public MovementAbility movementAbility;
+
     //Movement attributes
     public float speed;
     public float acceleration;
@@ -82,12 +84,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                velocity.y -= gravity * Time.deltaTime;
-
-                if (input.jump && nextJump < Time.time)
-                {
-                    //Jump ability
-                }
+                //velocity.y -= gravity * Time.deltaTime;
             }
 
         }
@@ -98,6 +95,7 @@ public class PlayerMovement : MonoBehaviour
             if (input.jump && nextJump < Time.time)
             {
                 //Jump ability
+                movementAbility.ActivateAbility();
             }
         }
 
