@@ -119,7 +119,7 @@ MonoBehaviour:
   deceleration: 16
   gravity: 20
   jumpForce: 5
-  sensingZone: {fileID: 1204270994994171353}
+  sensor: {fileID: 0}
 --- !u!1 &4784110007606221812
 GameObject:
   m_ObjectHideFlags: 0
