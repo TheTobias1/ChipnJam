@@ -14,7 +14,7 @@ public class Disc : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if shouldStart(){
+        if( shouldStart()){
 
         }
     }
