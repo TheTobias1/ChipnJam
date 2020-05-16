@@ -20,6 +20,7 @@ public class EnemyMovement : PlayerMovement
 
         enemyAgent.updatePosition = false;
         enemyAgent.updateRotation = false;
+        enemyAgent.autoTraverseOffMeshLink = false;
     }
 
     protected override void Update()
@@ -46,7 +47,7 @@ public class EnemyMovement : PlayerMovement
             // Moving towards the player
             enemyAgent.SetDestination(sensor.Player.position);
 
-            enemyInput.moveInput = CondenseVector3(enemyAgent.desiredVelocity.normalized);
+            enemyInput.moveInput = CondenseVector3(enemyAgent.desiredVelocity);
             enemyInput.jump = false;
             enemyInput.attack = false;
             enemyInput.ability = false;
