@@ -9,6 +9,7 @@ public class ToxicPoo : DoubleJump
 
     public override void ActivateAbility()
     {
+
         if (hasDoubleJump)
         {
             Vector3 vel = movement.Velocity;
