@@ -37,6 +37,8 @@ public class Projectile : MonoBehaviour
     {
         if(body != null)
             body.velocity = force;
+
+        projectileSpeed = 0;
     }
 
     private void Update()

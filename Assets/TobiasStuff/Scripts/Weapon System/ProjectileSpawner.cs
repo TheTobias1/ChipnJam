@@ -33,5 +33,10 @@ public class ProjectileSpawner : MonoBehaviour
     public void Fire()
     {
         Projectile instance = Instantiate(projectile, transform.position, transform.rotation);
+
+        if(force > 0)
+        {
+            instance.SetVelocity(transform.forward * force);
+        }
     }
 }
