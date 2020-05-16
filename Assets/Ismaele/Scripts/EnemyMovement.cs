@@ -24,12 +24,16 @@ public class EnemyMovement : PlayerMovement
         enemyAgent = GetComponent<NavMeshAgent>();
         sensingZone = GetComponent<SphereCollider>();
 
+        enemyAgent.updatePosition = false;
+        enemyAgent.updateRotation = false;
+
         sensingZone.radius = 4.5f;
         sensingZone.isTrigger = true;
     }
 
     protected override void Update()
     {
+        enemyAgent.nextPosition = transform.position;
         PlayerInput input = ResolveInput();
 
         Move(input);
@@ -71,11 +75,9 @@ public class EnemyMovement : PlayerMovement
         } else
         {
             // Moving towards the player
-            Vector2 target = new Vector2(player.position.x, player.position.z);
-            Vector2 currentPosition = new Vector2(transform.position.x, transform.position.z);
+            enemyAgent.SetDestination(player.position);
 
-            enemyInput.moveInput = (target - currentPosition).normalized;
-
+            enemyInput.moveInput = enemyAgent.desiredVelocity.normalized;
             enemyInput.jump = false;
             enemyInput.attack = false;
             enemyInput.ability = false;
