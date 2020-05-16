@@ -62,18 +62,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 319442260108708537}
-  projectileWidth: 0.5
+  projectileWidth: 1.5
   projectileSpeed: 30
   projectileTimeout: 2
-  damage: 0
+  damage: 20
   damageOnOverlap: 0
   overlapTickRate: 0
   damageOnRaycast: 1
   destroyOnImpact: 0
   mask:
     serializedVersion: 2
-    m_Bits: 0
-  damagingTags: []
+    m_Bits: 1
+  damagingTags:
+  - Enemy
   deathPrefab: {fileID: 0}
 --- !u!1 &4293572733204644526
 GameObject:

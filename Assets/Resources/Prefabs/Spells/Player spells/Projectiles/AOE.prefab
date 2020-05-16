@@ -4882,7 +4882,8 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 0
-  damagingTags: []
+  damagingTags:
+  - Enemy
   deathPrefab: {fileID: 0}
 --- !u!1 &5667762352507707308
 GameObject:
@@ -9784,6 +9785,11 @@ PrefabInstance:
     - target: {fileID: 4601501450531987712, guid: 60dc296224f4b5a4e9fa1bf030f8249a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6008290502244998391, guid: 60dc296224f4b5a4e9fa1bf030f8249a,
+        type: 3}
+      propertyPath: damagingTags.Array.size
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7356269852794828716, guid: 60dc296224f4b5a4e9fa1bf030f8249a,

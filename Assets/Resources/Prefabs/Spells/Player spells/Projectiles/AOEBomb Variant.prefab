@@ -80,7 +80,7 @@ PrefabInstance:
     - target: {fileID: 2492728329305846410, guid: 86db06e66409ae446a3da5485548d91a,
         type: 3}
       propertyPath: m_Name
-      value: AOEBomb
+      value: AOEBomb Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4939685623209654076, guid: 86db06e66409ae446a3da5485548d91a,
         type: 3}

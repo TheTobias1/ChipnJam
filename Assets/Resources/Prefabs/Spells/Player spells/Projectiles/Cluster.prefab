@@ -33164,7 +33164,8 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 0
-  damagingTags: []
+  damagingTags:
+  - Enemy
   deathPrefab: {fileID: 0}
 --- !u!1 &9198688041462569430
 GameObject:

@@ -30,6 +30,7 @@ public class FlashOnHit : MonoBehaviour
 
     public void OnHit(GameObject damagedObject)
     {
+        Debug.Log("FLASH");
         CancelInvoke("UnFlash");
         mesh.material = flashMaterial;
         Invoke("UnFlash", 0.1f);

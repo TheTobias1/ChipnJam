@@ -20,6 +20,9 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 velocity;
     private float nextJump;
     private Vector3 forwardDirection;
+    public Vector3 Velocity { get { return velocity; } set { velocity = value; } }
+
+    private bool stunned;
 
     // Start is called before the first frame update
     protected virtual void Start()
@@ -39,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
     protected virtual void Move(PlayerInput input)
     {
         Vector2 planearVelocity = CondenseVector3(velocity);
-        Vector2 moveInput = input.moveInput;
+        Vector2 moveInput = (!stunned)? input.moveInput : Vector2.zero;
 
         if(moveInput.magnitude > 0.25f)
         {
@@ -47,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
             planearVelocity = Vector2.ClampMagnitude(planearVelocity, speed);
             forwardDirection = new Vector3(planearVelocity.x, 0, planearVelocity.y);
         }
-        else
+        else if(!stunned)
         {
             float curSpeed = planearVelocity.magnitude;
             curSpeed = Mathf.Max(0, curSpeed - deceleration * Time.deltaTime);
@@ -58,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(controller.isGrounded)
         {
-            velocity.y = -0.1f;
+            velocity.y = Mathf.Max(velocity.y, -0.1f);
 
             if(input.jump && nextJump < Time.time)
             {
@@ -80,7 +83,8 @@ public class PlayerMovement : MonoBehaviour
 
     protected virtual void RotateModel()
     {
-        playerModel.transform.rotation = Quaternion.Lerp(playerModel.rotation, Quaternion.LookRotation(forwardDirection), 15 * Time.deltaTime);
+        if(playerModel != null)
+            playerModel.transform.rotation = Quaternion.Lerp(playerModel.rotation, Quaternion.LookRotation(forwardDirection), 15 * Time.deltaTime);
     }
 
     protected virtual void Jump()
@@ -96,6 +100,24 @@ public class PlayerMovement : MonoBehaviour
         return new Vector2(v.x, v.z);
     }
 
+    public void Stun(Vector3 knockBackForce)
+    {
+        CancelInvoke("UnStun");
+        stunned = true;
+        velocity = knockBackForce;
+        Invoke("UnStun", 0.4f);
+    }
 
+    public void Stun()
+    {
+        CancelInvoke("UnStun");
+        stunned = true;
+        Invoke("UnStun", 0.4f);
+    }
+
+    public void UnStun()
+    {
+        stunned = false;
+    }
 }
 
