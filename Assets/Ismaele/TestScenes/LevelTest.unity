@@ -120,32 +120,35 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 939e315610d29e64296372ec5c9a84ef, type: 2}
 --- !u!1 &226864342 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3416596549818797206, guid: 7fabd2c5f80cfc04bacc09ac86b871dd,
     type: 3}
   m_PrefabInstance: {fileID: 3416596549625700416}
   m_PrefabAsset: {fileID: 0}
---- !u!135 &226864343
-SphereCollider:
+--- !u!195 &226864349
+NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 226864342}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 4.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!4 &226864346 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3416596549818797210, guid: 7fabd2c5f80cfc04bacc09ac86b871dd,
-    type: 3}
-  m_PrefabInstance: {fileID: 3416596549625700416}
-  m_PrefabAsset: {fileID: 0}
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &302587200 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7588350375661935194, guid: 2fcb18885232b784caa3da005d240082,
@@ -253,7 +256,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &482423357
 Transform:
@@ -346,7 +349,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &503024009
 Transform:
@@ -422,6 +425,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 503024008}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &665893355 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4784110007606221812, guid: 7fabd2c5f80cfc04bacc09ac86b871dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 3416596549625700416}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &665893358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665893355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa343e2878f05c54ba98b58f221e1819, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &730291112
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,7 +552,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &754769021
 Transform:
@@ -624,7 +645,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &759464419
 Transform:
@@ -817,7 +838,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1256748102
 Transform:
@@ -910,7 +931,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1322635362
 Transform:
@@ -1001,7 +1022,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!114 &1526288973
 MonoBehaviour:
@@ -1059,7 +1080,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1711991668
 Transform:
@@ -1152,7 +1173,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2001585358
 Transform:
@@ -1306,49 +1327,14 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2664206122498110855, guid: 7fabd2c5f80cfc04bacc09ac86b871dd,
         type: 3}
-      propertyPath: speed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2664206122498110855, guid: 7fabd2c5f80cfc04bacc09ac86b871dd,
-        type: 3}
-      propertyPath: acceleration
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 2664206122498110855, guid: 7fabd2c5f80cfc04bacc09ac86b871dd,
-        type: 3}
-      propertyPath: deceleration
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 2664206122498110855, guid: 7fabd2c5f80cfc04bacc09ac86b871dd,
-        type: 3}
-      propertyPath: gravity
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 2664206122498110855, guid: 7fabd2c5f80cfc04bacc09ac86b871dd,
-        type: 3}
-      propertyPath: jumpForce
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2664206122498110855, guid: 7fabd2c5f80cfc04bacc09ac86b871dd,
-        type: 3}
-      propertyPath: playerModel
+      propertyPath: sensor
       value: 
-      objectReference: {fileID: 226864346}
+      objectReference: {fileID: 665893358}
     - target: {fileID: 3416596549818797206, guid: 7fabd2c5f80cfc04bacc09ac86b871dd,
         type: 3}
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 3416596549818797206, guid: 7fabd2c5f80cfc04bacc09ac86b871dd,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3416596549818797208, guid: 7fabd2c5f80cfc04bacc09ac86b871dd,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 1fe0ecb90b0b21e4297f9ac4c8517399, type: 2}
     - target: {fileID: 3416596549818797210, guid: 7fabd2c5f80cfc04bacc09ac86b871dd,
         type: 3}
       propertyPath: m_LocalPosition.x
