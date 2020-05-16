@@ -8,6 +8,7 @@ public class EnemyDamage : MonoBehaviour
     private BoxCollider hitBox;
 
     public int damageAmount;
+    public bool damageEnemies;
 
     private void Start()
     {
@@ -16,7 +17,7 @@ public class EnemyDamage : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" || (damageEnemies && other.tag == "Enemy"))
         {
             HealthManager playerHealth = other.GetComponent<HealthManager>();
             playerHealth.TakeDamage(damageAmount);
