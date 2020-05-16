@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour
 {
-    public GameObject player;
+    public PlayerMovement player;
 
     public bool moveToPlayer;
     public float lerpSpeed;
@@ -20,7 +20,7 @@ public class PlayerCamera : MonoBehaviour
     {
         if(player == null)
         {
-            player = GameObject.FindGameObjectWithTag("Player");
+            player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         }
     }
 
@@ -37,7 +37,16 @@ public class PlayerCamera : MonoBehaviour
 
     void MoveToPlayer()
     {
-        Vector3 target = player.transform.position + playerOffset;
+        Vector3 playerPos = player.transform.position;
+        Vector3 vel = player.Velocity;
+        vel.y = 0;
+
+        if(vel.magnitude > 1)
+        {
+            playerPos += vel * 0.5f;
+        }
+
+        Vector3 target = playerPos + playerOffset;
 
         if(!centered)
         {
@@ -60,6 +69,6 @@ public class PlayerCamera : MonoBehaviour
 
     public void MoveCamera(Vector3 pos)
     {
-        desired = Vector3.Lerp(transform.position, pos, lerpSpeed * Time.deltaTime);
+        desired = pos;
     }
 }
