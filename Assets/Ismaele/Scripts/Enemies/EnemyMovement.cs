@@ -13,6 +13,7 @@ public class EnemyMovement : PlayerMovement
     public EnemySensor sensor;
 
     private bool shouldJump;
+    private bool traversingLink;
 
     protected override void Start()
     {
@@ -32,9 +33,6 @@ public class EnemyMovement : PlayerMovement
 
         Move(input);
         RotateModel();
-
-        if (shouldJump)
-            enemyAgent.CompleteOffMeshLink();
     }
 
     private PlayerInput ResolveInput()
@@ -56,12 +54,26 @@ public class EnemyMovement : PlayerMovement
 
             Debug.Log(enemyAgent.isOnOffMeshLink);
 
-            if (enemyAgent.isOnOffMeshLink && Controller.isGrounded)
+            if (enemyAgent.isOnOffMeshLink && !traversingLink)
             {
+                OffMeshLinkData data = enemyAgent.currentOffMeshLinkData;
+                enemyInput.moveInput = CondenseVector3(data.endPos - transform.position);
+
                 enemyInput.jump = true;
                 shouldJump = true;
+
+                if (!Controller.isGrounded)
+                {
+                    traversingLink = true;
+                }
+            } else if (traversingLink && Controller.isGrounded)
+            {
+                traversingLink = false;
+                enemyAgent.CompleteOffMeshLink();
             } else
             {
+                enemyInput.moveInput = CondenseVector3(enemyAgent.desiredVelocity);
+
                 enemyInput.jump = false;
                 shouldJump = false;
             }
