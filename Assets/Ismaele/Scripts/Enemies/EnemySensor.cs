@@ -10,7 +10,7 @@ public class EnemySensor : MonoBehaviour
     public float detectRange = 4.5f;
     public float loseSightRange = 7.5f;
 
-    public bool SensesPlayer { get; private set; }
+    public bool SensesPlayer { get => Player != null; }
     public Transform Player { get; private set; }
 
     private void Start()
@@ -25,7 +25,6 @@ public class EnemySensor : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            SensesPlayer = true;
             Player = other.transform;
 
             sensingZone.radius = loseSightRange;
@@ -36,7 +35,6 @@ public class EnemySensor : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            SensesPlayer = false;
             Player = null;
 
             sensingZone.radius = detectRange;

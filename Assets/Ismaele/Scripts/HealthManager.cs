@@ -21,6 +21,14 @@ public class HealthManager : MonoBehaviour
         Health = maxHealth;
     }
 
+    private void OnDestroy()
+    {
+        onKilled = null;
+        onDamaged = null;
+        onHealed = null;
+        onRevived = null;
+    }
+
     public void TakeDamage(int damageAmount)
     {
         if (damageAmount <= 0)

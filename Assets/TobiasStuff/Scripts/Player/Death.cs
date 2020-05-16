@@ -23,10 +23,4 @@ public class Death : MonoBehaviour
 
         Destroy(gameObject);
     }
-
-    private void OnDestroy()
-    {
-        hp.onKilled -= Die;
-    }
-
 }
