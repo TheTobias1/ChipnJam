@@ -9535,7 +9535,8 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 0
-  damagingTags: []
+  damagingTags:
+  - Enemy
   deathPrefab: {fileID: 4848192765162469603, guid: 9b64a887e61f19e469fa5bb57520ec21,
     type: 3}
 --- !u!54 &9019951997652822480

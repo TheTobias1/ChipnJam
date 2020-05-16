@@ -4877,7 +4877,7 @@ PrefabInstance:
     - target: {fileID: 6097250903245976167, guid: cf1ef25169b0b9c4ea2593e2d6fd2f26,
         type: 3}
       propertyPath: m_Name
-      value: AOEBomb Cluster
+      value: AOEBomb Cluster Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7857600818475584466, guid: cf1ef25169b0b9c4ea2593e2d6fd2f26,
         type: 3}
