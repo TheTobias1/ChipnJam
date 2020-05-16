@@ -9,6 +9,7 @@ public class LpPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("the length of the list:" + theLoops.Count.ToString());
         PlayNewDisc(theLoops[1]);
     }
 
@@ -21,7 +22,6 @@ public class LpPlayer : MonoBehaviour
     public void PlayNewDisc(AudioClip clip){
         Disc disc = Instantiate(discPrefab);
         disc.StartMusic(clip);
-
     }
 
 
