@@ -75,14 +75,14 @@ public class Projectile : MonoBehaviour
 
         if(projectileWidth > 0.1)
         {
-            if(Physics.SphereCast(transform.position, projectileWidth, transform.forward, out hit, projectileSpeed * Time.deltaTime + 1, mask))
+            if(Physics.SphereCast(transform.position, projectileWidth, transform.forward, out hit, projectileSpeed * Time.deltaTime + 0.7f, mask))
             {
                 return hit;
             }
         }
         else
         {
-            if (Physics.Raycast(transform.position, transform.forward, out hit, projectileSpeed * Time.deltaTime + 1, mask))
+            if (Physics.Raycast(transform.position, transform.forward, out hit, projectileSpeed * Time.deltaTime, mask))
             {
                 return hit;
             }
@@ -113,7 +113,11 @@ public class Projectile : MonoBehaviour
 
         if (hp != null)
         {
-            hp.TakeDamage(damage);
+            Debug.Log("HIT: " + hp.name);
+            if (damage > 0)
+                hp.TakeDamage(damage);
+            else
+                hp.HealDamage(damage);
         }
     }
 
