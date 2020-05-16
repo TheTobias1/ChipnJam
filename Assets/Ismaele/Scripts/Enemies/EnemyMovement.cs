@@ -12,7 +12,6 @@ public class EnemyMovement : PlayerMovement
     private NavMeshAgent enemyAgent;
     public EnemySensor sensor;
 
-    private bool shouldJump;
     private bool traversingLink;
 
     protected override void Start()
@@ -60,7 +59,6 @@ public class EnemyMovement : PlayerMovement
                 enemyInput.moveInput = CondenseVector3(data.endPos - transform.position);
 
                 enemyInput.jump = true;
-                shouldJump = true;
 
                 if (!Controller.isGrounded)
                 {
@@ -81,7 +79,6 @@ public class EnemyMovement : PlayerMovement
                 enemyInput.moveInput = CondenseVector3(enemyAgent.desiredVelocity);
 
                 enemyInput.jump = false;
-                shouldJump = false;
             }
 
             enemyInput.attack = false;
