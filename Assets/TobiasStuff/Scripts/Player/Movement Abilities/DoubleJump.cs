@@ -8,7 +8,15 @@ public class DoubleJump : MovementAbility
 
     public override void ActivateAbility()
     {
-        movement.Velocity.y = movement.jumpForce;
+        if(hasDoubleJump)
+        {
+            Vector3 vel = movement.Velocity;
+            vel.y = movement.jumpForce;
+            movement.Velocity = vel;
+
+            hasDoubleJump = false;
+        }
+
     }
 
     // Update is called once per frame

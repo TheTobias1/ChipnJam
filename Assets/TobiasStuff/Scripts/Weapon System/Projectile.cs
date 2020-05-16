@@ -124,7 +124,7 @@ public class Projectile : MonoBehaviour
                     hp.BroadcastMessage("Flash", gameObject, SendMessageOptions.DontRequireReceiver);
             }
             else
-                hp.HealDamage(damage);
+                hp.HealDamage(-damage);
         }
     }
 

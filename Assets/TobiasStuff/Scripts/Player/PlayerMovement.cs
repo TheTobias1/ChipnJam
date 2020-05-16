@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController Controller { get => controller; }
 
     public MovementAbility movementAbility;
+
+    //delegates
+    public Action OnJump;
 
     //Movement attributes
     public float speed;
@@ -92,10 +96,13 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.y -= gravity * Time.deltaTime;
 
-            if (input.jump && nextJump < Time.time)
+            Vector3 detectionPos = new Vector3(transform.position.x, controller.bounds.max.y + 0.3f, transform.position.z);
+            RaycastHit raycastHit;
+            if (input.jump && nextJump < Time.time && !Physics.SphereCast(detectionPos, controller.radius, Vector3.down, out raycastHit, controller.bounds.size.y + 0.4f, groundMask))
             {
                 //Jump ability
                 movementAbility.ActivateAbility();
+                nextJump = Time.time + 0.35f;
             }
         }
 
@@ -110,7 +117,10 @@ public class PlayerMovement : MonoBehaviour
 
     protected virtual void Jump()
     {
-        nextJump = Time.time + 0.2f;
+        if (OnJump != null)
+            OnJump();
+
+        nextJump = Time.time + 0.35f;
 
         velocity.y = jumpForce;
     }

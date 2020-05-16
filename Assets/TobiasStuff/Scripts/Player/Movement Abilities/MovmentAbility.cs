@@ -11,6 +11,13 @@ public abstract class MovementAbility : MonoBehaviour
     {
         movement = GetComponentInParent<PlayerMovement>();
         controller = GetComponentInParent<CharacterController>();
+
+        if(movement.movementAbility != null)
+        {
+            Destroy(movement.movementAbility.gameObject);
+        }
+
+        movement.movementAbility = this;
     }
 
     public abstract void ActivateAbility();

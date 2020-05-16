@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3691884821729514776}
   - component: {fileID: 7451215635493759344}
   - component: {fileID: -6193140867487622722}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BigBomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,6 +79,7 @@ MonoBehaviour:
   - Enemy
   deathPrefab: {fileID: 9185362180724980388, guid: 6b0b0a935bf73e7469e56643ca5439bb,
     type: 3}
+  knockBack: 0
 --- !u!135 &7451215635493759344
 SphereCollider:
   m_ObjectHideFlags: 0
