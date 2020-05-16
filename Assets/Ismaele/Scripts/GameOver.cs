@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameOver : MonoBehaviour
 {
     private HealthManager player;
+    public GameObject canvas;
 
     private void Start()
     {
@@ -13,8 +14,9 @@ public class GameOver : MonoBehaviour
         player.onKilled += GameOverScreen;
     }
 
-    private void GameOverScreen()
+    public void GameOverScreen()
     {
-
+        Debug.Log("GAME OVER!!!");
+        canvas.SetActive(true);
     }
 }
