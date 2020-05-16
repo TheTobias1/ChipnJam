@@ -12,6 +12,8 @@ public class EnemyMovement : PlayerMovement
     private NavMeshAgent enemyAgent;
     public EnemySensor sensor;
 
+    private bool shouldJump;
+
     protected override void Start()
     {
         base.Start();
@@ -30,6 +32,9 @@ public class EnemyMovement : PlayerMovement
 
         Move(input);
         RotateModel();
+
+        if (shouldJump)
+            enemyAgent.CompleteOffMeshLink();
     }
 
     private PlayerInput ResolveInput()
@@ -39,7 +44,7 @@ public class EnemyMovement : PlayerMovement
         if (!sensor.SensesPlayer)
         {
             enemyInput.moveInput = Vector2.zero;
-            enemyInput.jump = false;
+            enemyInput.jump = true;
             enemyInput.attack = false;
             enemyInput.ability = false;
         } else
@@ -48,7 +53,19 @@ public class EnemyMovement : PlayerMovement
             enemyAgent.SetDestination(sensor.Player.position);
 
             enemyInput.moveInput = CondenseVector3(enemyAgent.desiredVelocity);
-            enemyInput.jump = false;
+
+            Debug.Log(enemyAgent.isOnOffMeshLink);
+
+            if (enemyAgent.isOnOffMeshLink && Controller.isGrounded)
+            {
+                enemyInput.jump = true;
+                shouldJump = true;
+            } else
+            {
+                enemyInput.jump = false;
+                shouldJump = false;
+            }
+
             enemyInput.attack = false;
             enemyInput.ability = false;
         }
