@@ -101,7 +101,8 @@ public class PlayerMovement : MonoBehaviour
             if (input.jump && nextJump < Time.time && !Physics.SphereCast(detectionPos, controller.radius, Vector3.down, out raycastHit, controller.bounds.size.y + 0.4f, groundMask))
             {
                 //Jump ability
-                movementAbility.ActivateAbility();
+                if(movementAbility != null)
+                    movementAbility.ActivateAbility();
                 nextJump = Time.time + 0.35f;
             }
         }
