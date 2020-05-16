@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
     private HealthManager player;
     public GameObject canvas;
+
+    public string mainMenuName = "MainMenu";
 
     private void Start()
     {
@@ -16,7 +19,11 @@ public class GameOver : MonoBehaviour
 
     public void GameOverScreen()
     {
-        Debug.Log("GAME OVER!!!");
         canvas.SetActive(true);
+    }
+
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene(mainMenuName);
     }
 }
