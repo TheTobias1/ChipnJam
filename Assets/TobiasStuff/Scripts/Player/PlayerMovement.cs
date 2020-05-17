@@ -46,11 +46,9 @@ public class PlayerMovement : MonoBehaviour
     {
         PlayerInput inputBuffer = InputManager.GetPlayerInput();
 
-        if(!PlayerMovement.playerFrozen)
-        {
-            Move(inputBuffer);
-            RotateModel();
-        }
+       if(!PlayerMovement.playerFrozen)
+          Move(inputBuffer);
+       RotateModel();
     }
 
     protected virtual void Move(PlayerInput input)
