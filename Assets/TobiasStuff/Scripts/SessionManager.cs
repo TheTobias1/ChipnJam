@@ -9,6 +9,7 @@ public class SessionManager : MonoBehaviour
     public int curRound = 0;
     public List<int> combatScenes;
     public int finalLevel;
+    public int musicLevel;
 
     public List<Abilities> playerInventory;
     public static Abilities[] PlayerInventory { get { return (SessionManager.manager != null) ? SessionManager.manager.playerInventory.ToArray() : new Abilities[0]; } }
@@ -42,6 +43,17 @@ public class SessionManager : MonoBehaviour
         LpPlayer.acquiredLPs = new List<Abilities>();
 
         spellSpawner.SpawnAbilities(playerInventory.ToArray());
+    }
+    
+    public void LoadCombatRound()
+    {
+        SceneManager.LoadScene(combatScenes[curRound]);
+        ++curRound;
+    }
+
+    public void LoadMusicLevel()
+    {
+        SceneManager.LoadScene(musicLevel);
     }
 
     public void AddAbility(int a)
