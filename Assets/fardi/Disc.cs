@@ -133,7 +133,7 @@ public class Disc : MonoBehaviour
 
     void UpdateColour(){
         int numColors = winState - loseState;
-        if (points != 0)
+        if (points != 0 || firstInputMade)
         {
             discRender.material.color = Color.Lerp(loseColour, winColour, lerpVal);
         }
