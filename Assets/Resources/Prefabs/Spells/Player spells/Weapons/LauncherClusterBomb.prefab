@@ -47,7 +47,7 @@ MonoBehaviour:
   Spawners:
   - {fileID: 6151762587981159964}
   fireRate: 1
-  weaponType: 1
+  weaponType: 0
 --- !u!1 &6151762587981159938
 GameObject:
   m_ObjectHideFlags: 0
