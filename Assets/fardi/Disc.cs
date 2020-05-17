@@ -5,7 +5,7 @@ using UnityEngine;
 public class Disc : MonoBehaviour
 {
     Color winColour = new Color(0f, 255f, 0f, 255f);
-    Color loseColour = new Color(255f, 0f, 0f, 0f);
+    Color loseColour = new Color(255f, 0f, 0f, 255f);
     public Renderer discRender;
 
     [SerializeField] bool loopIsPlaying;
@@ -132,8 +132,26 @@ public class Disc : MonoBehaviour
 
     void UpdateColour(){
         int numColors = winState - loseState;
-        float lerpVal = 0.5f + (0.5f * (1/winState) * (float)points);
-        discRender.material.color = Color.Lerp(winColour, loseColour, lerpVal);
+        float lerpVal = 0.5f + (0.5f * (0.5f/winState) * (float)points);
+        if (points == 0)
+        {
+            lerpVal = 0.5f;
+        }
+        else if (points == -1){
+            lerpVal = 0.25f;
+        }
+        else if (points <= -2)
+        {
+            lerpVal = 0f;
+        }
+        else if (points == 1){
+            lerpVal = 0.75f;
+        }
+        else if (points >= 2)
+        {
+            lerpVal = 1;
+        }
+        discRender.material.color = Color.Lerp(loseColour, winColour, lerpVal);
     }
 
 
