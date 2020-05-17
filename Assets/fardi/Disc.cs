@@ -13,6 +13,7 @@ public class Disc : MonoBehaviour
     bool clickWindowActive;
     bool playerMissedBeat;
     bool firstInputMade;
+    bool toggleInput;
     public static bool playerWon = false;
     private float buttonDelay;
 
@@ -99,19 +100,26 @@ public class Disc : MonoBehaviour
         }
 
         //now check for input, and timing success
-        if(Input.GetButton("RhythmHit") && Time.time > buttonDelay 
-        && Time.time >= (initTime + loopTime - clickWindowTime)){
-            buttonDelay = Time.time + 0.3f;
+        if (Input.GetButton("RhythmHit"))
+        {
             firstInputMade = true;
-            if (clickWindowActive == true){
-                Debug.Log("successful click");
-                points += 1;
-                playerMissedBeat = false;
+            if(toggleInput == false  && Time.time > buttonDelay 
+            && Time.time >= (initTime + loopTime - clickWindowTime)){
+                buttonDelay = Time.time + 0.3f;
+                toggleInput = true;
+                if (clickWindowActive == true){
+                    Debug.Log("successful click");
+                    points += 1;
+                    playerMissedBeat = false;
+                }
+                else {
+                    Debug.Log("bad click");
+                    points -= 1;
+                };
             }
-            else {
-                Debug.Log("bad click");
-                points -= 1;
-            };
+        }
+        else{
+            toggleInput = false;
         }
 
         if (points >= winState){
