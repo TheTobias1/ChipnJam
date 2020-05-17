@@ -80,6 +80,7 @@ public class LpPlayer : MonoBehaviour
 
     void EndRhythmGame(){
         Instantiate(newObject);
+        Destroy(gameObject);
     }
 
 
