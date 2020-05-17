@@ -8,7 +8,7 @@ public class HealthManager : MonoBehaviour
     public int Health { get; private set; }
     public int maxHealth = 100;
 
-    public float HealthPercent { get => Health / maxHealth; }
+    public float HealthPercent { get => Health / (float)maxHealth; }
     public bool IsAlive { get => Health > 0; }
 
     public Action onKilled;
