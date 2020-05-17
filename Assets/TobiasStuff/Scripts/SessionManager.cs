@@ -20,6 +20,7 @@ public class SessionManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        earnedAbilities = new bool[19];
         SessionManager.manager = this;
         DontDestroyOnLoad(gameObject);
         //SceneManager.sceneLoaded += OnLevelLoaded;
@@ -49,13 +50,16 @@ public class SessionManager : MonoBehaviour
 
         spellSpawner.SpawnAbilities(playerInventory.ToArray());
     }
-    
+
     public void LoadCombatRound()
     {
         if (curRound < combatScenes.Count)
             SceneManager.LoadScene(combatScenes[curRound]);
         else
+        { 
             SceneManager.LoadScene(0);
+            Destroy(gameObject);
+        }
 
         ++curRound;
     }
@@ -65,7 +69,10 @@ public class SessionManager : MonoBehaviour
         if(curRound != finalLevel)
             SceneManager.LoadScene(musicLevel);
         else
+        {
             SceneManager.LoadScene(0);
+            Destroy(gameObject);
+        }
     }
 
     public static void LoadNext()
