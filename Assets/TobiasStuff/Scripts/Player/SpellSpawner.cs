@@ -33,9 +33,11 @@ public class SpellSpawner : MonoBehaviour
         
     }
 
-    public void SpawnAbilities(Abilities[] newAbilities)
+    public void SpawnAbilities(List<Abilities> newAbilities)
     {
-        foreach(Abilities n in newAbilities)
+        Debug.Log("Spawning new abilities");
+        Debug.Log(SessionManager.PlayerInventory.ToArray());
+        foreach(Abilities n in SessionManager.PlayerInventory)
         {
             try
             {
@@ -50,6 +52,13 @@ public class SpellSpawner : MonoBehaviour
             }
 
         }
+    }
+
+    public void SpawnAbility(Abilities n)
+    {
+        GameObject newAbility = Instantiate(abilityDirectory[(int)n], transform);
+        newAbility.transform.localPosition = Vector3.zero;
+        newAbility.transform.localRotation = Quaternion.identity;
     }
 
     public static bool IsSameType(Abilities a, Abilities b)

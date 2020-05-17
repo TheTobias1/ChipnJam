@@ -28,7 +28,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 8877429826999490339}
   m_Father: {fileID: 3551658831047032477}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -158,6 +159,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 513
+  groundAngle: 30
 --- !u!114 &3551658831047032448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,3 +264,106 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathPrefab: {fileID: 0}
+--- !u!1 &7613066788605746897
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8877429826999490339}
+  - component: {fileID: 5614501201425970594}
+  m_Layer: 0
+  m_Name: SpellSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8877429826999490339
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7613066788605746897}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3551658830358489696}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5614501201425970594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7613066788605746897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e44912ded2ca22949b34cff9baa92416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWeapon: {fileID: 0}
+  currentAbility: {fileID: 0}
+  abilities:
+  - abilityName: 0
+    abilityPrefab: {fileID: 2714280793283986447, guid: 401dee8788206c0458faf3ea6bdfc2fd,
+      type: 3}
+  - abilityName: 1
+    abilityPrefab: {fileID: 9221226505491000688, guid: bba2d5e13c6b765478c410e4c94fe3ba,
+      type: 3}
+  - abilityName: 2
+    abilityPrefab: {fileID: 6151762586607646799, guid: 7d37c4d6d44853b4596ccc25f54e57d7,
+      type: 3}
+  - abilityName: 3
+    abilityPrefab: {fileID: 377986958711134362, guid: aefc4d629d7ef4c428dde7324b30e3b8,
+      type: 3}
+  - abilityName: 4
+    abilityPrefab: {fileID: 5705447827839604284, guid: 1af0e3ebe1800454b88b916742b253a2,
+      type: 3}
+  - abilityName: 5
+    abilityPrefab: {fileID: 7230491043079655934, guid: 11c41b90af22dff4581f47d43ead6c19,
+      type: 3}
+  - abilityName: 6
+    abilityPrefab: {fileID: 5350335971397188578, guid: bb66128a240d7464d947c13dda51ba75,
+      type: 3}
+  - abilityName: 7
+    abilityPrefab: {fileID: 8659353666821462163, guid: f8789d1de440b9246a069530ea5b92e9,
+      type: 3}
+  - abilityName: 8
+    abilityPrefab: {fileID: 1943406176340404949, guid: 79712df824f352e48bbd7d7bfe8ff598,
+      type: 3}
+  - abilityName: 9
+    abilityPrefab: {fileID: 5957210528131167749, guid: e2d0412dfd216d6438fc97077a0486cc,
+      type: 3}
+  - abilityName: 10
+    abilityPrefab: {fileID: 3233578121597952953, guid: 608a4fbf410af5e489585051f1842c44,
+      type: 3}
+  - abilityName: 11
+    abilityPrefab: {fileID: 7091777205215972671, guid: 30db7e514aebad9439197a1ebbf5db25,
+      type: 3}
+  - abilityName: 12
+    abilityPrefab: {fileID: 312966213823448374, guid: b1c9e49b989db64438037abad9fa7173,
+      type: 3}
+  - abilityName: 13
+    abilityPrefab: {fileID: 1502921456276919715, guid: 8c286b44346be7a48893750402cdf4d3,
+      type: 3}
+  - abilityName: 14
+    abilityPrefab: {fileID: 7109987791975594621, guid: 40d4e7868875d1d4bad801c7fad77963,
+      type: 3}
+  - abilityName: 15
+    abilityPrefab: {fileID: 2714280793283986447, guid: d592d7f891d13dc498334172b012a35d,
+      type: 3}
+  - abilityName: 16
+    abilityPrefab: {fileID: 7373785392507136126, guid: e9cf772ab0f3296478224f1bb17baaa2,
+      type: 3}
+  - abilityName: 17
+    abilityPrefab: {fileID: 7373785392507136126, guid: a257cc76f7047c74bbebbb2c5da6e60e,
+      type: 3}
+  - abilityName: 18
+    abilityPrefab: {fileID: 7373785392507136126, guid: 3e768268c9a9acf42aa40a07110c4597,
+      type: 3}

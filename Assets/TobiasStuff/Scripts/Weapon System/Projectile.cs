@@ -83,7 +83,7 @@ public class Projectile : MonoBehaviour
         }
         else
         {
-            if (Physics.Raycast(transform.position, transform.forward, out hit, projectileSpeed * Time.deltaTime, mask))
+            if (Physics.Raycast(transform.position, transform.forward, out hit, projectileSpeed * Time.deltaTime + 0.7f, mask))
             {
                 return hit;
             }

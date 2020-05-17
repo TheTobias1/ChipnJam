@@ -15437,8 +15437,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f48f09d2a2ed7fa4da6b4410a36f03dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  curRound: 0
   combatScenes: 
+  finalLevel: 0
+  musicLevel: 0
   playerInventory: 010000000e00000012000000
+  earnedAbilities: 
 --- !u!4 &1646936820
 Transform:
   m_ObjectHideFlags: 0
