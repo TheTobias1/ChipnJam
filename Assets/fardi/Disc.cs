@@ -40,6 +40,7 @@ public class Disc : MonoBehaviour
         if (loopIsPlaying){
           PlayRhythmGame();
         }
+
     }
 
     public void StartMusic(AudioClip clip){
@@ -119,4 +120,6 @@ public class Disc : MonoBehaviour
         
 
     }
+
+    
 }
