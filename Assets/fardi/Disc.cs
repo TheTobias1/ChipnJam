@@ -7,14 +7,17 @@ public class Disc : MonoBehaviour
     [SerializeField] bool loopIsPlaying;
     bool clickWindowActive;
     bool playerMissedBeat;
-    bool monitorPlayTime;
+    bool firstInputMade;
+    public static bool playerWon = false;
+    private float buttonDelay;
 
     //points management
     public int loseState;
-    public int WinState;
+    public int winState;
     [SerializeField] private int points;
 
     [SerializeField] private float time;
+    [SerializeField] private float initTime;
     [SerializeField] private float loopTime;
     [SerializeField] private float criticalTime;
     public float clickWindowTime;
@@ -24,10 +27,12 @@ public class Disc : MonoBehaviour
     void Start()
     {
         clickWindowActive = false;
-        monitorPlayTime = false;
+        firstInputMade = false;
         playerMissedBeat = true;
         loopCount = 0;
+        criticalTime = 0;
         time = 0;
+        initTime = Time.time;
         points = 0;
     }
 
@@ -50,15 +55,17 @@ public class Disc : MonoBehaviour
 
     void PlayRhythmGame(){
         //keep accurate value for time since audio begun playing
-        if(!monitorPlayTime){
+        /*if(!monitorPlayTime){
+            time = Time.time - initTime;
             monitorPlayTime = true;
         }
         else{
-            time += Time.deltaTime;
-        }
+            time = Time.time 
+        }*/
+        time = Time.time - initTime;
 
-        if (time >= (loopTime - clickWindowTime) &&
-         time <= (loopTime + clickWindowTime))
+        if (time >= (criticalTime - clickWindowTime) &&
+         time <= (criticalTime + clickWindowTime))
         {
             if(clickWindowActive == false){
                 clickWindowActive = true;
@@ -70,8 +77,8 @@ public class Disc : MonoBehaviour
             if(clickWindowActive == true){
                 clickWindowActive = false;
                 Debug.Log("Click Window is inactive");
-                loopTime += loopTime;
-                if (playerMissedBeat == true){
+                criticalTime += loopTime;
+                if (playerMissedBeat == true && firstInputMade == true){
                     Debug.Log("Player missed the beat");
                     points -= 1;
                 }
@@ -82,8 +89,11 @@ public class Disc : MonoBehaviour
             }
         }
 
-        //now check 
-        if(Input.GetButtonDown("Jump")){
+        //now check for input, and timing success
+        if(Input.GetButton("Jump") && Time.time > buttonDelay 
+        && Time.time >= (initTime + loopTime - clickWindowTime)){
+            buttonDelay = Time.time + 0.3f;
+            firstInputMade = true;
             if (clickWindowActive == true){
                 Debug.Log("successful click");
                 points += 1;
@@ -94,11 +104,21 @@ public class Disc : MonoBehaviour
                 points -= 1;
             };
         }
+
+        if (points >= winState){
+            Debug.Log("Player won");
+            Disc.playerWon = true;
+            LpPlayer.currentlyPlayingDisc = false;
+            Destroy(gameObject);
+        }
+        else if (points <= loseState){
+            Debug.Log("Player lost");
+            Disc.playerWon = false;
+            LpPlayer.currentlyPlayingDisc = false;
+            Destroy(gameObject);
+
+        }
         
 
     }
-
-    void changeScore(int num){
-
-    }    
 }
