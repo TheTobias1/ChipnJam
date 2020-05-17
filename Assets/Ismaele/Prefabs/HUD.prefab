@@ -350,7 +350,7 @@ MonoBehaviour:
   ability3Text: {fileID: 8856024276247191492}
   icons:
   - abilityType: 0
-    icon: {fileID: 21300000, guid: b369b95c028b8194c856e6a6557f1591, type: 3}
+    icon: {fileID: 21300000, guid: 33315437335f40f47abeab133a71851e, type: 3}
   - abilityType: 1
     icon: {fileID: 21300000, guid: b369b95c028b8194c856e6a6557f1591, type: 3}
   - abilityType: 2
@@ -364,7 +364,7 @@ MonoBehaviour:
   - abilityType: 6
     icon: {fileID: 21300000, guid: b369b95c028b8194c856e6a6557f1591, type: 3}
   - abilityType: 7
-    icon: {fileID: 21300000, guid: b369b95c028b8194c856e6a6557f1591, type: 3}
+    icon: {fileID: 21300000, guid: 33315437335f40f47abeab133a71851e, type: 3}
   - abilityType: 8
     icon: {fileID: 21300000, guid: b369b95c028b8194c856e6a6557f1591, type: 3}
   - abilityType: 9

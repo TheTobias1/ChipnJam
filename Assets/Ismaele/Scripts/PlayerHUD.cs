@@ -37,11 +37,15 @@ public class PlayerHUD : MonoBehaviour
         {
             iconsDictionary.Add(iconStruct.abilityType, iconStruct.icon);
         }
+
+        InvokeRepeating("FindPlayer", 0.0f, 1.0f);
     }
 
-    private void FixedUpdate()
+    private void FindPlayer()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthManager>();
+        player.onKilled += DisableHUD;
+        CancelInvoke("FindPlayer");
     }
 
     private void Update()
