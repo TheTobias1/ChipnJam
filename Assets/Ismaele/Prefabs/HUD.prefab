@@ -350,31 +350,31 @@ MonoBehaviour:
   ability3Text: {fileID: 8856024276247191492}
   icons:
   - abilityType: 0
-    icon: {fileID: 21300000, guid: b369b95c028b8194c856e6a6557f1591, type: 3}
+    icon: {fileID: 21300000, guid: 33315437335f40f47abeab133a71851e, type: 3}
   - abilityType: 1
-    icon: {fileID: 21300000, guid: b369b95c028b8194c856e6a6557f1591, type: 3}
+    icon: {fileID: 21300000, guid: 4c5de5ce66fdbe54a8129c601f2f3d1c, type: 3}
   - abilityType: 2
-    icon: {fileID: 21300000, guid: b369b95c028b8194c856e6a6557f1591, type: 3}
+    icon: {fileID: 21300000, guid: a944a60f1b1e4c845a78cc7a84e4ebe7, type: 3}
   - abilityType: 3
-    icon: {fileID: 21300000, guid: b369b95c028b8194c856e6a6557f1591, type: 3}
+    icon: {fileID: 21300000, guid: beeb63c7e8d506b42b3432adce9bd19a, type: 3}
   - abilityType: 4
-    icon: {fileID: 21300000, guid: b369b95c028b8194c856e6a6557f1591, type: 3}
+    icon: {fileID: 21300000, guid: 89b98499e95469f4cbfd7956aeba7cfb, type: 3}
   - abilityType: 5
-    icon: {fileID: 21300000, guid: b369b95c028b8194c856e6a6557f1591, type: 3}
+    icon: {fileID: 21300000, guid: d3e1fe8f512738748afe01e615660c15, type: 3}
   - abilityType: 6
-    icon: {fileID: 21300000, guid: b369b95c028b8194c856e6a6557f1591, type: 3}
+    icon: {fileID: 21300000, guid: 6879be015b38d8f428fb9224772370e6, type: 3}
   - abilityType: 7
-    icon: {fileID: 21300000, guid: b369b95c028b8194c856e6a6557f1591, type: 3}
+    icon: {fileID: 21300000, guid: 6446e549144a2a84792ccc78aeb5875c, type: 3}
   - abilityType: 8
     icon: {fileID: 21300000, guid: b369b95c028b8194c856e6a6557f1591, type: 3}
   - abilityType: 9
     icon: {fileID: 21300000, guid: b369b95c028b8194c856e6a6557f1591, type: 3}
   - abilityType: 10
-    icon: {fileID: 21300000, guid: b369b95c028b8194c856e6a6557f1591, type: 3}
+    icon: {fileID: 21300000, guid: 967d60b54c3b68c4eaf373cf30e242c0, type: 3}
   - abilityType: 11
-    icon: {fileID: 21300000, guid: b369b95c028b8194c856e6a6557f1591, type: 3}
+    icon: {fileID: 21300000, guid: f792dd58042826548be2b8df718c1221, type: 3}
   - abilityType: 12
-    icon: {fileID: 21300000, guid: b369b95c028b8194c856e6a6557f1591, type: 3}
+    icon: {fileID: 21300000, guid: 77112a587002b3d45a5c5cc8487ba7d0, type: 3}
   - abilityType: 13
     icon: {fileID: 21300000, guid: b369b95c028b8194c856e6a6557f1591, type: 3}
   - abilityType: 14
