@@ -6,10 +6,16 @@ using UnityEngine.SceneManagement;
 public class SessionManager : MonoBehaviour
 {
     public static SessionManager manager;
+    public int curRound = 0;
     public List<int> combatScenes;
+    public int finalLevel;
+    public int musicLevel;
 
     public List<Abilities> playerInventory;
     public static Abilities[] PlayerInventory { get { return (SessionManager.manager != null) ? SessionManager.manager.playerInventory.ToArray() : new Abilities[0]; } }
+    public bool[] earnedAbilities;
+
+    public static bool combatScene = false;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +32,12 @@ public class SessionManager : MonoBehaviour
         if(combatScenes.Contains(scene.buildIndex))
         {
             InitiateLevel();
+            SessionManager.combatScene = true;
+        }
+        if(scene.buildIndex == finalLevel)
+        {
+            //End
+            SessionManager.combatScene = false;
         }
     }
 
@@ -33,8 +45,39 @@ public class SessionManager : MonoBehaviour
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         SpellSpawner spellSpawner = player.GetComponentInChildren<SpellSpawner>();
+        LpPlayer.acquiredLPs = new List<Abilities>();
 
         spellSpawner.SpawnAbilities(playerInventory.ToArray());
+    }
+    
+    public void LoadCombatRound()
+    {
+        if (curRound < combatScenes.Count)
+            SceneManager.LoadScene(combatScenes[curRound]);
+        else
+            SceneManager.LoadScene(0);
+
+        ++curRound;
+    }
+
+    public void LoadMusicLevel()
+    {
+        if(curRound != finalLevel)
+            SceneManager.LoadScene(musicLevel);
+        else
+            SceneManager.LoadScene(0);
+    }
+
+    public static void LoadNext()
+    {
+        if(SessionManager.combatScene)
+        {
+            SessionManager.manager.LoadMusicLevel();
+        }
+        else
+        {
+            SessionManager.manager.LoadCombatRound();
+        }
     }
 
     public void AddAbility(int a)
@@ -52,5 +95,12 @@ public class SessionManager : MonoBehaviour
                 return;
             }
         }
+
+        playerInventory.Add(a);
+    }
+
+    public static void EarnAbility(Abilities a)
+    {
+        SessionManager.manager.earnedAbilities[(int)a] = true;
     }
 }

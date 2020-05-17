@@ -94,5 +94,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Spawners:
   - {fileID: 5717959490306844532}
-  fireRate: 0.5
+  fireRate: 0.7
   weaponType: 0

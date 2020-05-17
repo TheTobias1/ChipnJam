@@ -352,5 +352,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa343e2878f05c54ba98b58f221e1819, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectRange: 30
-  loseSightRange: 40
+  detectRange: 80
+  loseSightRange: 100

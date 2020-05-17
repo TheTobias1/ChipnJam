@@ -58,7 +58,7 @@ public class EnemyMovement : PlayerMovement
                 OffMeshLinkData data = enemyAgent.currentOffMeshLinkData;
                 enemyInput.moveInput = CondenseVector3(data.endPos - transform.position);
 
-                enemyInput.jump = true;
+                enemyInput.jump = !IsBelow(data.endPos);
 
                 if (!Controller.isGrounded)
                 {
@@ -68,7 +68,9 @@ public class EnemyMovement : PlayerMovement
             {
                 OffMeshLinkData data = enemyAgent.currentOffMeshLinkData;
                 enemyInput.moveInput = CondenseVector3(data.endPos - transform.position);
-                if(Controller.isGrounded)
+                enemyInput.jump = !IsBelow(data.endPos);
+
+                if (Controller.isGrounded && Vector3.Distance(transform.position, data.endPos) < 2)
                 {
                     traversingLink = false;
                     enemyAgent.CompleteOffMeshLink();
@@ -86,5 +88,15 @@ public class EnemyMovement : PlayerMovement
         }
 
         return enemyInput;
+    }
+
+    public bool IsBelow(Vector3 v)
+    {
+        if(transform.position.y - 2 > v.y)
+        {
+            return true;
+        }
+
+        return false;
     }
 }
