@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Disc : MonoBehaviour
 {
+    Color winColour = new Color(0f, 255f, 0f, 255f);
+    Color loseColour = new Color(255f, 0f, 0f, 0f);
+    public Renderer discRender;
+
     [SerializeField] bool loopIsPlaying;
     bool clickWindowActive;
     bool playerMissedBeat;
@@ -12,7 +16,7 @@ public class Disc : MonoBehaviour
     private float buttonDelay;
 
     //points management
-    public int loseState;
+    [SerializeField] int loseState;
     public int winState;
     [SerializeField] private int points;
 
@@ -25,6 +29,9 @@ public class Disc : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        discRender = GetComponentInChildren<Renderer>();
+        loseState = -winState;
+        Disc.playerWon = false;
         clickWindowActive = false;
         firstInputMade = false;
         playerMissedBeat = true;
@@ -40,6 +47,8 @@ public class Disc : MonoBehaviour
         if (loopIsPlaying){
           PlayRhythmGame();
         }
+        UpdateColour();
+
 
     }
 
@@ -121,5 +130,11 @@ public class Disc : MonoBehaviour
 
     }
 
-    
+    void UpdateColour(){
+        int numColors = winState - loseState;
+        float lerpVal = 0.5f + (0.5f * (1/winState) * (float)points);
+        discRender.material.color = Color.Lerp(winColour, loseColour, lerpVal);
+    }
+
+
 }

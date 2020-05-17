@@ -103,7 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loopIsPlaying: 0
   loseState: -3
-  winState: -3
+  winState: 3
   points: 0
   time: 0
   initTime: 0
