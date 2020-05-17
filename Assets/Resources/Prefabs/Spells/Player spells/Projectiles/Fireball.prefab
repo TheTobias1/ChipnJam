@@ -62,10 +62,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 319442260108708537}
-  projectileWidth: 1.5
+  projectileWidth: 0.3
   projectileSpeed: 30
   projectileTimeout: 2
-  damage: 15
+  damage: 30
   damageOnOverlap: 0
   overlapTickRate: 0
   damageOnRaycast: 1

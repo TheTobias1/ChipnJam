@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     public float gravity;
     public float jumpForce;
     public LayerMask groundMask;
+    public float groundAngle = 30;
 
     //Movement State
     private Vector3 velocity;
@@ -70,8 +71,16 @@ public class PlayerMovement : MonoBehaviour
 
             if(input.aim)
             {
-                forwardDirection = new Vector3(moveInput.x, 0, moveInput.y);
+                if(moveInput.magnitude > 0.5f)
+                    forwardDirection = new Vector3(moveInput.x, 0, moveInput.y);
+                else
+                    forwardDirection = new Vector3(input.mouseInput.x, 0, input.mouseInput.y);
             }
+            else if (moveInput.magnitude < 0.5f)
+            {
+                forwardDirection = new Vector3(input.mouseInput.x, 0, input.mouseInput.y);
+            }
+
         }
 
         velocity = new Vector3(planearVelocity.x, velocity.y, planearVelocity.y);
@@ -113,7 +122,7 @@ public class PlayerMovement : MonoBehaviour
     protected virtual void RotateModel()
     {
         if(playerModel != null)
-            playerModel.transform.rotation = Quaternion.Lerp(playerModel.rotation, Quaternion.LookRotation(forwardDirection), 15 * Time.deltaTime);
+            playerModel.transform.rotation = Quaternion.Lerp(playerModel.rotation, Quaternion.LookRotation(forwardDirection), 35 * Time.deltaTime);
     }
 
     protected virtual void Jump()
@@ -134,7 +143,7 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit[] raycastHit = Physics.SphereCastAll(detectionPos, controller.radius, Vector3.down, controller.bounds.size.y + 0.4f, groundMask);
         foreach(RaycastHit h in raycastHit)
         {
-            if (Vector3.Angle(Vector3.up, h.normal) < 10)
+            if (Vector3.Angle(Vector3.up, h.normal) < groundAngle)
             {
                 Debug.Log("Ground: " + h.collider.name);
                 flatSurface = true;
@@ -144,7 +153,9 @@ public class PlayerMovement : MonoBehaviour
 
         if(!flatSurface)
         {
-            Stun(Vector3.Reflect(Velocity, hit.normal).normalized * 6.7f, 0.2f);
+            Vector3 vel = Vector3.Reflect(Velocity, hit.normal).normalized * 6.7f;
+            vel.y = -8;
+            Stun(vel, 0.2f);
         }
     }
 

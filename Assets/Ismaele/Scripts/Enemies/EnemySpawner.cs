@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public static bool islandComplete;
+
+    private GameObject player;
+
     public GameObject enemy;
     public List<Transform> spawnLocations;
     public float minSpawnTime = 5.0f;
@@ -14,17 +18,28 @@ public class EnemySpawner : MonoBehaviour
     private bool canSpawn;
 
     public int numEnemies;
+    private List<GameObject> spawnedEnemies;
+
+    bool waveSpawned = false;
+    bool allDead = false;
+    bool checkingDead = false;
+
+    private void Awake()
+    {
+        EnemySpawner.islandComplete = false;
+    }
 
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+
         canSpawn = false;
         spawnTime = Random.Range(minSpawnTime, maxSpawnTime);
     }
 
     private void FixedUpdate()
     {
-
-        if (canSpawn)
+        if (canSpawn && !waveSpawned)
         {
             canSpawn = false;
             spawnTime = Random.Range(minSpawnTime, maxSpawnTime);
@@ -32,7 +47,7 @@ public class EnemySpawner : MonoBehaviour
             Debug.Log(randomLocation);
             Instantiate(enemy, spawnLocations[randomLocation].position, Quaternion.identity);
 
-            ++numEnemies;
+            --numEnemies;
         } else
         {
             timeSinceLast += Time.deltaTime;
@@ -44,6 +59,38 @@ public class EnemySpawner : MonoBehaviour
         }
 
         if (numEnemies <= 0)
+            waveSpawned = true;
+
+
+        if(!checkingDead && waveSpawned)
+        {
+            checkingDead = true;
+            StartCoroutine(DeathCheck());
+        }
+
+        if(allDead)
+        {
+            EnemySpawner.islandComplete = true;
+            Debug.Log("Island complete");
+            StopAllCoroutines();
             Destroy(gameObject);
+        }
+    }
+
+    IEnumerator DeathCheck()
+    {
+        bool d = true;
+        foreach(GameObject e in spawnedEnemies)
+        {
+            yield return null;
+            if(e != null)
+            {
+                d = false;
+                break;
+            }
+        }
+
+        allDead = d;
+        checkingDead = false;
     }
 }
