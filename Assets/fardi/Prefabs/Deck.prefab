@@ -26,7 +26,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2634208019241319500}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
@@ -90,4 +90,22 @@ MonoBehaviour:
   theLoops:
   - {fileID: 8300000, guid: cb4ecb92941362146bfda7b13e93a4a3, type: 3}
   - {fileID: 8300000, guid: b37ba1916c16bdc46b6c63639f21fbd3, type: 3}
-  discPrefab: {fileID: 0}
+  - {fileID: 8300000, guid: eb3cf1a5a6814ba47aed593c59dc47a1, type: 3}
+  - {fileID: 8300000, guid: b3291a83efad389409ab47225da0f841, type: 3}
+  - {fileID: 8300000, guid: 7f500bd433807824a9a4931927ada561, type: 3}
+  - {fileID: 8300000, guid: 2d3522756aa8d3c43b6694200b4f89a4, type: 3}
+  - {fileID: 8300000, guid: 2d794d91fbd0e674f92c7723f6c30214, type: 3}
+  - {fileID: 8300000, guid: be49a6d6280befb4a973864672770a6e, type: 3}
+  - {fileID: 8300000, guid: 571900ff7ffb4b841825a8117bb7f2e5, type: 3}
+  - {fileID: 8300000, guid: bf0ae54faa89e61449671d28eeada827, type: 3}
+  - {fileID: 8300000, guid: be49a6d6280befb4a973864672770a6e, type: 3}
+  - {fileID: 8300000, guid: bf0ae54faa89e61449671d28eeada827, type: 3}
+  - {fileID: 8300000, guid: bf0ae54faa89e61449671d28eeada827, type: 3}
+  - {fileID: 8300000, guid: bf0ae54faa89e61449671d28eeada827, type: 3}
+  - {fileID: 8300000, guid: bf0ae54faa89e61449671d28eeada827, type: 3}
+  - {fileID: 8300000, guid: bf0ae54faa89e61449671d28eeada827, type: 3}
+  - {fileID: 8300000, guid: 571900ff7ffb4b841825a8117bb7f2e5, type: 3}
+  - {fileID: 8300000, guid: bf0ae54faa89e61449671d28eeada827, type: 3}
+  - {fileID: 8300000, guid: bf0ae54faa89e61449671d28eeada827, type: 3}
+  discPrefab: {fileID: 4547793035074222973, guid: 1eb4e46b3122e7b43a8e4688148c05ca,
+    type: 3}
