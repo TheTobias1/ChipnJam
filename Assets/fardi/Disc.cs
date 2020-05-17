@@ -21,7 +21,6 @@ public class Disc : MonoBehaviour
     [SerializeField] private float loopTime;
     [SerializeField] private float criticalTime;
     public float clickWindowTime;
-    int loopCount;
     [SerializeField] AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
@@ -29,7 +28,6 @@ public class Disc : MonoBehaviour
         clickWindowActive = false;
         firstInputMade = false;
         playerMissedBeat = true;
-        loopCount = 0;
         criticalTime = 0;
         time = 0;
         initTime = Time.time;
@@ -90,7 +88,7 @@ public class Disc : MonoBehaviour
         }
 
         //now check for input, and timing success
-        if(Input.GetButton("Jump") && Time.time > buttonDelay 
+        if(Input.GetButton("RhythmHit") && Time.time > buttonDelay 
         && Time.time >= (initTime + loopTime - clickWindowTime)){
             buttonDelay = Time.time + 0.3f;
             firstInputMade = true;
