@@ -7,6 +7,7 @@ public class Disc : MonoBehaviour
     Color winColour = new Color(0f, 255f, 0f, 255f);
     Color loseColour = new Color(255f, 0f, 0f, 255f);
     public Renderer discRender;
+    float lerpVal;
 
     [SerializeField] bool loopIsPlaying;
     bool clickWindowActive;
@@ -132,26 +133,24 @@ public class Disc : MonoBehaviour
 
     void UpdateColour(){
         int numColors = winState - loseState;
-        float lerpVal = 0.5f + (0.5f * (0.5f/winState) * (float)points);
-        if (points == 0)
+        if (points != 0)
         {
-            lerpVal = 0.5f;
+            discRender.material.color = Color.Lerp(loseColour, winColour, lerpVal);
         }
-        else if (points == -1){
+        if (points == -1){
             lerpVal = 0.25f;
         }
-        else if (points <= -2)
+        if (points <= -2)
         {
             lerpVal = 0f;
         }
-        else if (points == 1){
+        if (points == 1){
             lerpVal = 0.75f;
         }
-        else if (points >= 2)
+        if (points >= 2)
         {
-            lerpVal = 1;
+            lerpVal = 1f;
         }
-        discRender.material.color = Color.Lerp(loseColour, winColour, lerpVal);
     }
 
 
