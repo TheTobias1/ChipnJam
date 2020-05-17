@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 public class SessionManager : MonoBehaviour
 {
     public static SessionManager manager;
+    public int curRound = 0;
     public List<int> combatScenes;
+    public int finalLevel;
 
     public List<Abilities> playerInventory;
     public static Abilities[] PlayerInventory { get { return (SessionManager.manager != null) ? SessionManager.manager.playerInventory.ToArray() : new Abilities[0]; } }
@@ -27,12 +29,17 @@ public class SessionManager : MonoBehaviour
         {
             InitiateLevel();
         }
+        if(scene.buildIndex == finalLevel)
+        {
+            //End
+        }
     }
 
     public void InitiateLevel()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         SpellSpawner spellSpawner = player.GetComponentInChildren<SpellSpawner>();
+        LpPlayer.acquiredLPs = new List<Abilities>();
 
         spellSpawner.SpawnAbilities(playerInventory.ToArray());
     }
