@@ -48,12 +48,18 @@ public class ShipSequence : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if(collision.tag == "Player" && EnemySpawner.islandComplete)
+        if(collision.tag == "Player" && EnemySpawner.islandComplete && !leaving)
         {
             leaving = true;
             player.transform.parent = transform;
             PlayerMovement.playerFrozen = true;
+            Invoke("NextScene", 3);
         }
+    }
+
+    public void NextScene()
+    {
+        SessionManager.manager.LoadMusicLevel();
     }
 
 
