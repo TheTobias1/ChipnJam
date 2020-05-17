@@ -13,6 +13,9 @@ public class SessionManager : MonoBehaviour
 
     public List<Abilities> playerInventory;
     public static Abilities[] PlayerInventory { get { return (SessionManager.manager != null) ? SessionManager.manager.playerInventory.ToArray() : new Abilities[0]; } }
+    public bool[] earnedAbilities;
+
+    public static bool combatScene = false;
 
     // Start is called before the first frame update
     void Start()
@@ -29,10 +32,12 @@ public class SessionManager : MonoBehaviour
         if(combatScenes.Contains(scene.buildIndex))
         {
             InitiateLevel();
+            SessionManager.combatScene = true;
         }
         if(scene.buildIndex == finalLevel)
         {
             //End
+            SessionManager.combatScene = false;
         }
     }
 
@@ -47,13 +52,32 @@ public class SessionManager : MonoBehaviour
     
     public void LoadCombatRound()
     {
-        SceneManager.LoadScene(combatScenes[curRound]);
+        if (curRound < combatScenes.Count)
+            SceneManager.LoadScene(combatScenes[curRound]);
+        else
+            SceneManager.LoadScene(0);
+
         ++curRound;
     }
 
     public void LoadMusicLevel()
     {
-        SceneManager.LoadScene(musicLevel);
+        if(curRound != finalLevel)
+            SceneManager.LoadScene(musicLevel);
+        else
+            SceneManager.LoadScene(0);
+    }
+
+    public static void LoadNext()
+    {
+        if(SessionManager.combatScene)
+        {
+            SessionManager.manager.LoadMusicLevel();
+        }
+        else
+        {
+            SessionManager.manager.LoadCombatRound();
+        }
     }
 
     public void AddAbility(int a)
@@ -71,5 +95,12 @@ public class SessionManager : MonoBehaviour
                 return;
             }
         }
+
+        playerInventory.Add(a);
+    }
+
+    public static void EarnAbility(Abilities a)
+    {
+        SessionManager.manager.earnedAbilities[(int)a] = true;
     }
 }
