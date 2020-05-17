@@ -151,6 +151,9 @@ public class Disc : MonoBehaviour
         {
             lerpVal = 1f;
         }
+        if (points == 0){
+            lerpVal = 0.5f;
+        }
     }
 
 
