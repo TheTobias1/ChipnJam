@@ -50,22 +50,51 @@ public class PlayerHUD : MonoBehaviour
 
     private void Update()
     {
-        a1 = SessionManager.PlayerInventory[0];
-        a2 = SessionManager.PlayerInventory[1];
-        a3 = SessionManager.PlayerInventory[2];
+        if (SessionManager.PlayerInventory.Count > 0)
+        {
+            a1 = SessionManager.PlayerInventory[0];
+            ability1Icon.sprite = iconsDictionary[a1];
+            ability1Text.text = a1.ToString();
+        }
 
-        ability1Icon.sprite = iconsDictionary[a1];
-        ability2Icon.sprite = iconsDictionary[a2];
-        ability3Icon.sprite = iconsDictionary[a3];
 
-        ability1Text.text = a1.ToString();
-        ability2Text.text = a2.ToString();
-        ability3Text.text = a3.ToString();
+        if(SessionManager.PlayerInventory.Count > 1)
+        {
+            a2 = SessionManager.PlayerInventory[1];
+            ability2Icon.sprite = iconsDictionary[a2];
+                    ability2Text.text = a2.ToString();
+        }
+
+
+        if (SessionManager.PlayerInventory.Count > 2)
+        {
+            a3 = SessionManager.PlayerInventory[2];
+            ability3Icon.sprite = iconsDictionary[a3];
+            ability3Text.text = a3.ToString();
+        }
+
+
 
         if (!Weapon.abilityActive)
         {
-            ability3Icon.enabled = false;
-            ability3Text.text = "USED";
+            if (SpellSpawner.GetAbilityType(a1) == WeaponType.Ability)
+            {
+
+                ability1Icon.enabled = false;
+                ability1Text.text = "USED";
+            }
+            if (SpellSpawner.GetAbilityType(a2) == WeaponType.Ability)
+            {
+
+                ability2Icon.enabled = false;
+                ability2Text.text = "USED";
+            }
+            if (SpellSpawner.GetAbilityType(a3) == WeaponType.Ability)
+            {
+
+                ability3Icon.enabled = false;
+                ability3Text.text = "USED";
+            }
         }
 
         hpBar.fillAmount = player.HealthPercent;

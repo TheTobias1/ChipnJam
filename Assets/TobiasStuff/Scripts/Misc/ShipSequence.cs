@@ -18,7 +18,7 @@ public class ShipSequence : MonoBehaviour
     IEnumerator StartLevel()
     {
         Vector3 target = transform.position;
-        transform.position = target - transform.forward * 35;
+        transform.position = target - transform.forward * 25;
 
         while(Vector3.Distance(transform.position, target) > 0.1f)
         {

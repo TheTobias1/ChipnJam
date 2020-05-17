@@ -148,7 +148,6 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Vector3.Angle(Vector3.up, h.normal) < groundAngle)
             {
-                Debug.Log("Ground: " + h.collider.name);
                 flatSurface = true;
                 break;
             }

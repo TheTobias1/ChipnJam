@@ -9524,7 +9524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 4269576612569404678}
-  projectileWidth: 0.5
+  projectileWidth: 0.6
   projectileSpeed: 60
   projectileTimeout: 2
   damage: 10

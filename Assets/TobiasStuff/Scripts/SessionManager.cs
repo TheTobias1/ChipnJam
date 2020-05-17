@@ -12,7 +12,7 @@ public class SessionManager : MonoBehaviour
     public int musicLevel;
 
     public List<Abilities> playerInventory;
-    public static Abilities[] PlayerInventory { get { return (SessionManager.manager != null) ? SessionManager.manager.playerInventory.ToArray() : new Abilities[0]; } }
+    public static List<Abilities> PlayerInventory { get { return SessionManager.manager.playerInventory; } }
     public bool[] earnedAbilities;
 
     public static bool combatScene = false;
@@ -23,7 +23,7 @@ public class SessionManager : MonoBehaviour
         earnedAbilities = new bool[19];
         SessionManager.manager = this;
         DontDestroyOnLoad(gameObject);
-        //SceneManager.sceneLoaded += OnLevelLoaded;
+        SceneManager.sceneLoaded += OnLevelLoaded;
 
         InitiateLevel();
     }
@@ -32,7 +32,7 @@ public class SessionManager : MonoBehaviour
     {
         if(combatScenes.Contains(scene.buildIndex))
         {
-            InitiateLevel();
+            Invoke("InitiateLevel", 1f);
             SessionManager.combatScene = true;
         }
         if(scene.buildIndex == finalLevel)
@@ -46,9 +46,13 @@ public class SessionManager : MonoBehaviour
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         SpellSpawner spellSpawner = player.GetComponentInChildren<SpellSpawner>();
+        Debug.Log("Spawning");
         LpPlayer.acquiredLPs = new List<Abilities>();
 
-        spellSpawner.SpawnAbilities(playerInventory.ToArray());
+        foreach(Abilities a in playerInventory)
+        {
+            spellSpawner.SpawnAbility(a);
+        }
     }
 
     public void LoadCombatRound()
@@ -109,5 +113,10 @@ public class SessionManager : MonoBehaviour
     public static void EarnAbility(Abilities a)
     {
         SessionManager.manager.earnedAbilities[(int)a] = true;
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnLevelLoaded;
     }
 }

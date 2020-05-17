@@ -4,5 +4,26 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Ismaele/MainMenu.unity
+    guid: 463dbf02aca4a264490a88d9021a191c
+  - enabled: 1
+    path: Assets/Scenes/Level 0/Level 0.unity
+    guid: 1354776b43afbb84fb5f3e1917b70177
+  - enabled: 1
+    path: Assets/Scenes/Level 1/Level 1.unity
+    guid: 099fb569bb2349c4e95ec52e016d2951
+  - enabled: 1
+    path: Assets/Scenes/Level 2/Level2.unity
+    guid: 38a927d0bc0039d489958793bf00a68e
+  - enabled: 1
+    path: Assets/Scenes/Level 3/Level 3.unity
+    guid: b2603a68d7151ae42a711b170c9e9d96
+  - enabled: 1
+    path: Assets/Scenes/Level 4/Level 4.unity
+    guid: 666029cf7f7fd4e4fa0fe2bbdfa2577a
+  - enabled: 1
+    path: Assets/Scenes/LPTesting.unity
+    guid: f4d06f9460a1cf840adda804b3a33708
   m_configObjects: {}
