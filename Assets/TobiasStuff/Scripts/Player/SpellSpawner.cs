@@ -54,24 +54,23 @@ public class SpellSpawner : MonoBehaviour
 
     public static bool IsSameType(Abilities a, Abilities b)
     {
-        //weapons
-        if((int)a <= 9 )
-        {
-            if((int)b <= 9)
-                return true;
-        }
-        else if((int)a <= 14) //movement
-        {
-            if ((int)b <= 14)
-                return true;
-        }
-        else //specials
-        {
-            if ((int)b > 14)
-                return true;
-        }
+        return SpellSpawner.GetAbilityType(a) == SpellSpawner.GetAbilityType(b);
+    }
 
-        return false;
+    public static WeaponType GetAbilityType(Abilities a)
+    {
+        if ((int)a <= 9)
+        {
+            return WeaponType.Attack;
+        }
+        else if((int)a <= 14)
+        {
+            return WeaponType.Movement;
+        }
+        else
+        {
+            return WeaponType.Ability;
+        }
     }
 }
 

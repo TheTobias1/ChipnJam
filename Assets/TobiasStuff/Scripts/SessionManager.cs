@@ -5,13 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class SessionManager : MonoBehaviour
 {
+    public static SessionManager manager;
     public List<int> combatScenes;
 
     public List<Abilities> playerInventory;
+    public static Abilities[] PlayerInventory { get { return (SessionManager.manager != null) ? SessionManager.manager.playerInventory.ToArray() : new Abilities[0]; } }
 
     // Start is called before the first frame update
     void Start()
     {
+        SessionManager.manager = this;
         DontDestroyOnLoad(gameObject);
         //SceneManager.sceneLoaded += OnLevelLoaded;
 

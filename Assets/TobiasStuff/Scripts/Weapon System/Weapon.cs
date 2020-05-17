@@ -69,4 +69,4 @@ public class Weapon : MonoBehaviour
     }
 }
 
-public enum WeaponType { Attack, Ability, Custom };
+public enum WeaponType { Attack, Ability, Movement, Custom };

@@ -18,7 +18,7 @@ public class EnemySpawner : MonoBehaviour
     private bool canSpawn;
 
     public int numEnemies;
-    private List<GameObject> spawnedEnemies;
+    private List<GameObject> spawnedEnemies = new List<GameObject>();
 
     bool waveSpawned = false;
     bool allDead = false;
@@ -45,7 +45,12 @@ public class EnemySpawner : MonoBehaviour
             spawnTime = Random.Range(minSpawnTime, maxSpawnTime);
             int randomLocation = Random.Range(0, spawnLocations.Count);
             Debug.Log(randomLocation);
-            Instantiate(enemy, spawnLocations[randomLocation].position, Quaternion.identity);
+            if(enemy != null)
+            {
+                GameObject e = Instantiate(enemy, spawnLocations[randomLocation].position, Quaternion.identity);
+                spawnedEnemies.Add(e);
+            }
+
 
             --numEnemies;
         } else

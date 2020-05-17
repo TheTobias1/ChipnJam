@@ -25,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
     public float groundAngle = 30;
 
+    public static bool playerFrozen;
+
     //Movement State
     private Vector3 velocity;
     private float nextJump;
@@ -44,8 +46,11 @@ public class PlayerMovement : MonoBehaviour
     {
         PlayerInput inputBuffer = InputManager.GetPlayerInput();
 
-        Move(inputBuffer);
-        RotateModel();
+        if(!PlayerMovement.playerFrozen)
+        {
+            Move(inputBuffer);
+            RotateModel();
+        }
     }
 
     protected virtual void Move(PlayerInput input)
