@@ -366,9 +366,15 @@ MonoBehaviour:
   - abilityType: 7
     icon: {fileID: 21300000, guid: 8a150aeb664a2404cadb953a3a8e3b24, type: 3}
   - abilityType: 8
+<<<<<<< HEAD
     icon: {fileID: 21300000, guid: 37ab1fed7f0fa9b459873e6784a27bf2, type: 3}
   - abilityType: 9
     icon: {fileID: 21300000, guid: de85dbdb4e85cbc41b620b2dd1edd48e, type: 3}
+=======
+    icon: {fileID: 21300000, guid: d2f9ff35f7fe6aa45972d9824cc8e450, type: 3}
+  - abilityType: 9
+    icon: {fileID: 21300000, guid: bada5fa8714a1f74c8cb2595e4518b69, type: 3}
+>>>>>>> 8ecbab4b9f2ca2c72485d1a09ecdf34834d56ec1
   - abilityType: 10
     icon: {fileID: 21300000, guid: 45a136a05ba69234bbef0f1593303d26, type: 3}
   - abilityType: 11
@@ -376,17 +382,29 @@ MonoBehaviour:
   - abilityType: 12
     icon: {fileID: 21300000, guid: 472bb794f4828b944b4b699e93009436, type: 3}
   - abilityType: 13
+<<<<<<< HEAD
     icon: {fileID: 21300000, guid: c4eae5f6fe50a6d4c8df4321d5c46c7b, type: 3}
+=======
+    icon: {fileID: 21300000, guid: b5805fe1a40c11549afe59a5b40bd06a, type: 3}
+>>>>>>> 8ecbab4b9f2ca2c72485d1a09ecdf34834d56ec1
   - abilityType: 14
-    icon: {fileID: 21300000, guid: b369b95c028b8194c856e6a6557f1591, type: 3}
+    icon: {fileID: 21300000, guid: 75fadbb2724156442a8f960ef0d812c7, type: 3}
   - abilityType: 15
-    icon: {fileID: 21300000, guid: b369b95c028b8194c856e6a6557f1591, type: 3}
+    icon: {fileID: 21300000, guid: bb37845da5ac5e14ca0c0cd08a4e2b82, type: 3}
   - abilityType: 16
+<<<<<<< HEAD
     icon: {fileID: 21300000, guid: 633a6df0b8c15914fa03837bd7374727, type: 3}
   - abilityType: 17
     icon: {fileID: 21300000, guid: 614f2a61ead2df74390651635acde846, type: 3}
   - abilityType: 18
     icon: {fileID: 21300000, guid: 2af407083e6417a498f08ce0172d2a02, type: 3}
+=======
+    icon: {fileID: 21300000, guid: 5f48e4e2f5add1042b5dc9628714ab14, type: 3}
+  - abilityType: 17
+    icon: {fileID: 21300000, guid: 7b4118a30a7c8f74ba753cbc3084b1d9, type: 3}
+  - abilityType: 18
+    icon: {fileID: 21300000, guid: 145f3e59e3107254ea747d3c02b0145d, type: 3}
+>>>>>>> 8ecbab4b9f2ca2c72485d1a09ecdf34834d56ec1
 --- !u!1 &2690182650891130894
 GameObject:
   m_ObjectHideFlags: 0

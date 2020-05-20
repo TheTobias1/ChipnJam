@@ -50,9 +50,17 @@ public class PlayerHUD : MonoBehaviour
 
     private void Update()
     {
+        ability1Icon.enabled = false;
+        ability1Text.text = "Ability 1";
+        ability2Icon.enabled = false;
+        ability2Text.text = "Ability 2";
+        ability3Icon.enabled = false;
+        ability3Text.text = "Ability 3";
+
         if (SessionManager.PlayerInventory.Count > 0)
         {
             a1 = SessionManager.PlayerInventory[0];
+            ability1Icon.enabled = true;
             ability1Icon.sprite = iconsDictionary[a1];
             ability1Text.text = a1.ToString();
         }
@@ -61,14 +69,16 @@ public class PlayerHUD : MonoBehaviour
         if(SessionManager.PlayerInventory.Count > 1)
         {
             a2 = SessionManager.PlayerInventory[1];
+            ability2Icon.enabled = true;
             ability2Icon.sprite = iconsDictionary[a2];
-                    ability2Text.text = a2.ToString();
+            ability2Text.text = a2.ToString();
         }
 
 
         if (SessionManager.PlayerInventory.Count > 2)
         {
             a3 = SessionManager.PlayerInventory[2];
+            ability3Icon.enabled = true;
             ability3Icon.sprite = iconsDictionary[a3];
             ability3Text.text = a3.ToString();
         }

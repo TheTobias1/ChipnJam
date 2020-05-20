@@ -79,6 +79,9 @@ public class LpPlayer : MonoBehaviour
     }
 
     void EndRhythmGame(){
+        for (int i = 0; i < acquiredAbilities.Count; i++){
+            Debug.Log("gained ability:" + acquiredAbilities[i].ToString());
+        }
         Instantiate(newObject);
         Destroy(gameObject);
     }
